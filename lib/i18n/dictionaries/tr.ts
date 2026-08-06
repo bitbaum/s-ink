@@ -6,6 +6,7 @@ const tr: Dictionary = {
   tagline: 'İnce çizgi · Blackwork',
   nav: { work: 'İşler', styles: 'Stiller', studio: 'Stüdyo', book: 'Randevu' },
   hero: {
+    cta: 'Randevu al',
     pieces: 'parça',
     appointment: 'Randevuyla / Randevusuz kabul yok',
     scroll: 'Kaydır',
@@ -30,6 +31,7 @@ const tr: Dictionary = {
     { k: 'Stiller', v: 'Blackwork · İnce çizgi' },
     { k: 'Diller', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: 'İletişim', v: 'E-posta' },
+    { k: 'Ödeme', v: 'Nakit · Bitcoin' },
   ],
   reel: { tag: 'Hareket', lead: 'İyileşmiş işler, stüdyoda.' },
   book: {

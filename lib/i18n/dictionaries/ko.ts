@@ -6,6 +6,7 @@ const ko: Dictionary = {
   tagline: '파인라인 · 블랙워크',
   nav: { work: '작업', styles: '스타일', studio: '스튜디오', book: '예약' },
   hero: {
+    cta: '예약하기',
     pieces: '점',
     appointment: '예약제 / 워크인 불가',
     scroll: '스크롤',
@@ -30,6 +31,7 @@ const ko: Dictionary = {
     { k: '스타일', v: '블랙워크 · 파인라인' },
     { k: '언어', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: '연락', v: '메일' },
+    { k: '결제', v: '현금 · 비트코인' },
   ],
   reel: { tag: '모션', lead: '아문 작업, 스튜디오에서.' },
   book: {

@@ -6,6 +6,7 @@ const en: Dictionary = {
   tagline: 'Fine line · Blackwork',
   nav: { work: 'Work', styles: 'Styles', studio: 'Studio', book: 'Book' },
   hero: {
+    cta: 'Book now',
     pieces: 'pieces',
     appointment: 'By appointment / No walk-ins',
     scroll: 'Scroll',
@@ -30,6 +31,7 @@ const en: Dictionary = {
     { k: 'Styles', v: 'Blackwork · Fine line' },
     { k: 'Languages', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: 'Contact', v: 'Email' },
+    { k: 'Payment', v: 'Cash · Bitcoin' },
   ],
   reel: { tag: 'Motion', lead: 'Healed work, in the room.' },
   book: {

@@ -16,7 +16,6 @@
   --primitive-ash: #8f95a3;
   --primitive-bone: #e9eaee;
   --primitive-strobe: #ff4a17;
-  --primitive-ice: #7fdfff;
 
   /* ---- Tier 2: semantic tokens (what things MEAN — always use these) ---- */
   --color-bg: var(--primitive-void);
@@ -27,7 +26,6 @@
   --color-text: var(--primitive-bone);
   --color-text-muted: var(--primitive-ash);
   --color-accent: var(--primitive-strobe);
-  --color-accent-cool: var(--primitive-ice);
   --color-on-accent: var(--primitive-void);
 
   /* Typography */

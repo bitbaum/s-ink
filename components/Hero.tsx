@@ -1,4 +1,5 @@
 import { ScrambleText } from '@/components/ScrambleText';
+import { buildMailto } from '@/lib/contact';
 import type { Dictionary } from '@/lib/i18n';
 import { SITE } from '@/lib/site';
 import { PORTRAIT_SRC } from '@/lib/works';
@@ -36,6 +37,15 @@ export function Hero({ t, pieceCount }: { t: Dictionary; pieceCount: number }) {
             <ScrambleText text={SITE.markBottom} delay={240} />
           </span>
         </h1>
+
+        {/* The action, on the first screen. Everything below it is evidence for
+            the decision this button asks the visitor to make. */}
+        <a className={styles.cta} href={buildMailto(t)}>
+          {t.hero.cta}
+          <span className={styles.ctaArrow} aria-hidden="true">
+            →
+          </span>
+        </a>
       </div>
 
       <div className={styles.corners} aria-hidden="true">
