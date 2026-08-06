@@ -68,8 +68,15 @@ def crop_to(im: Image.Image, aspect: float, focus, zoom: float) -> Image.Image:
     return im.crop((int(left), int(top), int(left + bw), int(top + bh)))
 
 
-def grade(im: Image.Image) -> Image.Image:
-    """Near-monochrome cold duotone. The house look, applied to every frame."""
+def grade(im: Image.Image, mode: str = "work") -> Image.Image:
+    """Near-monochrome cold duotone. The house look, applied to every frame.
+
+    `portrait` mode pulls its punches. The studio shot is already dark and
+    contrasty, and the ring light behind him is a cold cyan that happens to land
+    on the site's cool accent — crushing it to mono the way the tattoo close-ups
+    need would throw away the best thing in the frame.
+    """
+    colour_keep = 0.28 if mode == "portrait" else 0.06
     r, g, b = im.convert("RGB").split()
     # Weight red over blue when flattening to luminance: skin is red-dominant and
     # ink is blue-black, so this pushes them apart before the curve touches them.
@@ -79,8 +86,8 @@ def grade(im: Image.Image) -> Image.Image:
     lum = ImageEnhance.Contrast(lum).enhance(1.12)
 
     toned = ImageOps.colorize(lum, black=DUO_SHADOW, white=DUO_HIGHLIGHT, mid=DUO_MID)
-    # Keep a whisper of the original colour so skin still reads as skin.
-    return Image.blend(toned, im.convert("RGB"), 0.06)
+    # Keep some of the original colour so skin still reads as skin.
+    return Image.blend(toned, im.convert("RGB"), colour_keep)
 
 
 def vignette(im: Image.Image, strength: float = 0.55) -> Image.Image:
@@ -111,7 +118,8 @@ def export(work: dict) -> str:
     if long_edge > FULL:
         im = im.resize((round(im.width * FULL / long_edge),
                         round(im.height * FULL / long_edge)), Image.LANCZOS)
-    im = grain(vignette(grade(im)))
+    mode = work.get("grade", "work")
+    im = grain(vignette(grade(im, mode), 0.34 if mode == "portrait" else 0.55))
 
     im.save(OUT / f"{work['id']}.webp", "WEBP", quality=86, method=6)
     t = im.copy()
@@ -176,6 +184,8 @@ def qa_sheet(works):
 
 
 OUT.mkdir(parents=True, exist_ok=True)
+if SPEC.get("portrait"):
+    print(export(SPEC["portrait"]), flush=True)
 for w in SPEC["works"]:
     print(export(w), flush=True)
 for r in SPEC["reels"]:

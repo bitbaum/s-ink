@@ -1,9 +1,9 @@
 # S.Ink
 
-Portfolio site for **S.Ink** — tattoo work by Sami Sami. Fine line, blackwork,
-lettering, ornamental.
+Portfolio site for **S.Ink** — tattoo work by Sami Tutar. Fine line, blackwork,
+lettering, ornamental. Available in seven languages.
 
-Live: https://sink.orangecat.ch
+Live: https://sinktattoo.com
 
 ## What it is
 
@@ -57,13 +57,27 @@ npm start &
 PW=/path/to/node_modules/playwright/index.js node scripts/shots.mjs http://localhost:4019 /tmp
 ```
 
+## Languages
+
+Seven locales (`en`, `de-CH`, `fr`, `tr`, `zh`, `ja`, `ko`), each prerendered at
+its own path. `lib/i18n/types.ts` is the contract: add a string there and
+TypeScript points at the seven files that now fail to compile, so a missing
+translation is a build error rather than a blank space on the page.
+
+`/` redirects to the visitor's best match via `Accept-Language`.
+
+## Booking
+
+Email is the only booking route. The primary button opens a message with the
+subject and a short checklist body already written, in the visitor's language —
+the gap between "I'll email him later" and a half-finished draft is where most
+enquiries die. Change the address in one place: `EMAIL` in `lib/contact.ts`.
+
 ## Still open
 
-- **Booking links.** `LINKS` in `lib/site.ts` is empty, so the Book section
-  ships no outbound links — a dead link on a booking page is worse than none.
-  Add a handle there and it appears in the nav and the Book section
-  automatically. **The site currently has no way for anyone to actually reach
-  him.**
+- **Social links.** `LINKS` in `lib/site.ts` is empty, so no Instagram appears.
+  Add a handle there and it shows up in the nav and the Book section
+  automatically.
 - **Location.** Deliberately absent — no city is stated anywhere, and the
   structured data carries no address rather than a guessed one.
 

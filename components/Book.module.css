@@ -83,26 +83,6 @@
   text-transform: uppercase;
 }
 
-/* Stands in for the link cards while no handles are configured, so the column
-   still has weight instead of collapsing into white space. */
-.wordmark {
-  margin: 0;
-  font-size: clamp(3rem, 11vw, 8rem);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-border-strong);
-  paint-order: stroke fill;
-}
-
-@supports not (-webkit-text-stroke: 1px black) {
-  .wordmark {
-    color: var(--color-border-strong);
-  }
-}
-
 .cards {
   display: grid;
   gap: 1rem;

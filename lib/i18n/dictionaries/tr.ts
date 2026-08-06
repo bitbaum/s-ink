@@ -1,0 +1,86 @@
+import type { Dictionary } from '../types';
+
+const tr: Dictionary = {
+  localeLabel: 'Türkçe',
+  role: 'Dövme sanatçısı',
+  tagline: 'İnce çizgi · Blackwork',
+  nav: { work: 'İşler', styles: 'Stiller', studio: 'Stüdyo', book: 'Randevu' },
+  hero: {
+    pieces: 'parça',
+    appointment: 'Randevuyla / Randevusuz kabul yok',
+    scroll: 'Kaydır',
+  },
+  sections: {
+    work: { index: '01 / İşler', title: 'Seçki' },
+    styles: { index: '02 / Stiller', title: 'Ne yapıyor' },
+    studio: { index: '03 / Stüdyo', title: 'Detaylar' },
+    book: { index: '04 / Randevu' },
+  },
+  ticker: ['Blackwork', 'İnce çizgi', 'Yazı', 'Süsleme', 'Kapatma', 'Serbest el'],
+  styles: [
+    { title: 'Blackwork', note: 'Dolu siyah. Keskin kenarlar.' },
+    { title: 'İnce çizgi', note: 'Tek iğne. Dolgu yok.' },
+    { title: 'Yazı', note: 'El yazısı, karakter, isim.' },
+    { title: 'Süsleme', note: 'Köklü geometri.' },
+  ],
+  studio: [
+    { k: 'Sanatçı', v: 'Sami Tutar' },
+    { k: 'Randevu', v: 'Randevuyla' },
+    { k: 'Randevusuz', v: 'Hayır' },
+    { k: 'Stiller', v: 'Blackwork · İnce çizgi' },
+    { k: 'Diller', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: 'İletişim', v: 'E-posta' },
+  ],
+  reel: { tag: 'Hareket', lead: 'İyileşmiş işler, stüdyoda.' },
+  book: {
+    titleA: 'Fikrin için',
+    titleB: 'yaz bana',
+    sub: 'Randevusuz kabul yok. Sadece randevuyla.',
+    send: 'Gönder',
+    brief: ['Referans', 'Yer', 'Yaklaşık boyut'],
+  },
+  contact: {
+    cta: 'Sami’ye yaz',
+    copy: 'Adresi kopyala',
+    copied: 'Kopyalandı',
+    mailSubject: 'Dövme talebi — S.Ink',
+    mailBody: 'Merhaba Sami,\n\nReferans: \nYer: \nYaklaşık boyut: \nMüsait olduğum zamanlar: \n\nTeşekkürler',
+  },
+  footer: { backToTop: 'Başa dön' },
+  labels: {
+    placements: {
+      'Upper back': 'Üst sırt',
+      Shoulder: 'Omuz',
+      Forearm: 'Ön kol',
+      Ribs: 'Kaburga',
+      Calf: 'Baldır',
+      Shin: 'İncik',
+    },
+    workStyles: {
+      Blackwork: 'Blackwork',
+      'Fine line': 'İnce çizgi',
+      Lettering: 'Yazı',
+      Ornamental: 'Süsleme',
+    },
+    workTitles: {
+      owl: 'Baykuş',
+      dobermann: 'Doberman',
+      faravahar: 'Faravahar',
+      anatomy: 'Anatomi',
+      scorpion: 'Akrep',
+      stars: 'Yıldızlar',
+      bloom: 'Çiçek',
+      widow: 'Dul',
+      thorn: 'Diken',
+      hourglass: 'Kum saati',
+      father: 'Baba',
+      ridge: 'Sırt',
+      grin: 'Sırıtış',
+      engel: 'Melek',
+      memories: 'Anılar',
+      family: 'Aile 家庭',
+    },
+  },
+};
+
+export default tr;

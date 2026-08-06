@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import { LINKS, NAV, SITE } from '@/lib/site';
+import { LocaleSwitcher } from '@/components/LocaleSwitcher';
+import type { Dictionary, Locale } from '@/lib/i18n';
+import { LINKS, NAV_IDS, SITE } from '@/lib/site';
 import styles from './Nav.module.css';
 
 /**
@@ -13,7 +15,7 @@ import styles from './Nav.module.css';
  * section you are currently in — the only navigational feedback on a one-page
  * site.
  */
-export function Nav() {
+export function Nav({ t, locale }: { t: Dictionary; locale: Locale }) {
   const [stuck, setStuck] = useState(false);
   const [active, setActive] = useState<string>('');
 
@@ -25,7 +27,7 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
-    const sections = NAV.map((n) => document.getElementById(n.id)).filter(
+    const sections = NAV_IDS.map((id) => document.getElementById(id)).filter(
       (el): el is HTMLElement => el !== null,
     );
     const io = new IntersectionObserver(
@@ -49,19 +51,19 @@ export function Nav() {
         <a href="#top" className={styles.brand}>
           <span className={styles.dot} aria-hidden="true" />
           <span className={styles.brandName}>{SITE.name}</span>
-          <span className={`micro ${styles.brandRole}`}>{SITE.role}</span>
+          <span className={`micro ${styles.brandRole}`}>{t.role}</span>
         </a>
 
-        <nav aria-label="Sections">
+        <nav aria-label={t.nav.work}>
           <ul className={styles.links}>
-            {NAV.map((item) => (
-              <li key={item.id}>
+            {NAV_IDS.map((id) => (
+              <li key={id}>
                 <a
-                  href={`#${item.id}`}
+                  href={`#${id}`}
                   className={`micro ${styles.link}`}
-                  data-active={active === item.id}
+                  data-active={active === id}
                 >
-                  {item.label}
+                  {t.nav[id]}
                 </a>
               </li>
             ))}
@@ -78,6 +80,9 @@ export function Nav() {
                 </a>
               </li>
             ) : null}
+            <li>
+              <LocaleSwitcher current={locale} />
+            </li>
           </ul>
         </nav>
       </div>

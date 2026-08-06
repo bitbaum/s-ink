@@ -1,0 +1,86 @@
+import type { Dictionary } from '../types';
+
+const fr: Dictionary = {
+  localeLabel: 'Français',
+  role: 'Tatoueur',
+  tagline: 'Ligne fine · Blackwork',
+  nav: { work: 'Travaux', styles: 'Styles', studio: 'Studio', book: 'Rendez-vous' },
+  hero: {
+    pieces: 'pièces',
+    appointment: 'Sur rendez-vous / Sans visite spontanée',
+    scroll: 'Défiler',
+  },
+  sections: {
+    work: { index: '01 / Travaux', title: 'Sélection' },
+    styles: { index: '02 / Styles', title: 'Ce qu’il fait' },
+    studio: { index: '03 / Studio', title: 'Détails' },
+    book: { index: '04 / Rendez-vous' },
+  },
+  ticker: ['Blackwork', 'Ligne fine', 'Lettrage', 'Ornemental', 'Recouvrement', 'Main levée'],
+  styles: [
+    { title: 'Blackwork', note: 'Noir plein. Bords nets.' },
+    { title: 'Ligne fine', note: 'Une aiguille. Sans remplissage.' },
+    { title: 'Lettrage', note: 'Écriture, caractère, prénom.' },
+    { title: 'Ornemental', note: 'Géométrie d’héritage.' },
+  ],
+  studio: [
+    { k: 'Artiste', v: 'Sami Tutar' },
+    { k: 'Rendez-vous', v: 'Sur rendez-vous' },
+    { k: 'Visite spontanée', v: 'Non' },
+    { k: 'Styles', v: 'Blackwork · Ligne fine' },
+    { k: 'Langues', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: 'Contact', v: 'E-mail' },
+  ],
+  reel: { tag: 'Mouvement', lead: 'Travaux cicatrisés, en studio.' },
+  book: {
+    titleA: 'Écris-moi pour',
+    titleB: 'ton projet',
+    sub: 'Pas de visite spontanée. Sur rendez-vous uniquement.',
+    send: 'Envoie',
+    brief: ['Référence', 'Emplacement', 'Taille approximative'],
+  },
+  contact: {
+    cta: 'Écrire à Sami',
+    copy: 'Copier l’adresse',
+    copied: 'Copié',
+    mailSubject: 'Demande de tatouage — S.Ink',
+    mailBody: 'Salut Sami,\n\nRéférence : \nEmplacement : \nTaille approximative : \nMes disponibilités : \n\nMerci',
+  },
+  footer: { backToTop: 'Haut de page' },
+  labels: {
+    placements: {
+      'Upper back': 'Haut du dos',
+      Shoulder: 'Épaule',
+      Forearm: 'Avant-bras',
+      Ribs: 'Côtes',
+      Calf: 'Mollet',
+      Shin: 'Tibia',
+    },
+    workStyles: {
+      Blackwork: 'Blackwork',
+      'Fine line': 'Ligne fine',
+      Lettering: 'Lettrage',
+      Ornamental: 'Ornemental',
+    },
+    workTitles: {
+      owl: 'Hibou',
+      dobermann: 'Dobermann',
+      faravahar: 'Faravahar',
+      anatomy: 'Anatomie',
+      scorpion: 'Scorpion',
+      stars: 'Étoiles',
+      bloom: 'Fleur',
+      widow: 'Veuve',
+      thorn: 'Épine',
+      hourglass: 'Sablier',
+      father: 'Père',
+      ridge: 'Crête',
+      grin: 'Sourire',
+      engel: 'Ange',
+      memories: 'Souvenirs',
+      family: 'Famille 家庭',
+    },
+  },
+};
+
+export default fr;

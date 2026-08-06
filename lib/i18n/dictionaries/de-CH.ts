@@ -1,0 +1,87 @@
+import type { Dictionary } from '../types';
+
+// Swiss German orthography: no ß anywhere — "Grösse", not "Größe".
+const deCH: Dictionary = {
+  localeLabel: 'Deutsch (CH)',
+  role: 'Tätowierer',
+  tagline: 'Feine Linien · Blackwork',
+  nav: { work: 'Arbeiten', styles: 'Stile', studio: 'Studio', book: 'Termin' },
+  hero: {
+    pieces: 'Stücke',
+    appointment: 'Nur nach Vereinbarung / Keine Walk-ins',
+    scroll: 'Scrollen',
+  },
+  sections: {
+    work: { index: '01 / Arbeiten', title: 'Auswahl' },
+    styles: { index: '02 / Stile', title: 'Was er macht' },
+    studio: { index: '03 / Studio', title: 'Details' },
+    book: { index: '04 / Termin' },
+  },
+  ticker: ['Blackwork', 'Feine Linien', 'Schriftzug', 'Ornamental', 'Cover-up', 'Freihand'],
+  styles: [
+    { title: 'Blackwork', note: 'Volles Schwarz. Harte Kanten.' },
+    { title: 'Feine Linien', note: 'Eine Nadel. Keine Füllung.' },
+    { title: 'Schriftzug', note: 'Schrift, Zeichen, Name.' },
+    { title: 'Ornamental', note: 'Geometrie mit Herkunft.' },
+  ],
+  studio: [
+    { k: 'Künstler', v: 'Sami Tutar' },
+    { k: 'Termine', v: 'Nach Vereinbarung' },
+    { k: 'Walk-ins', v: 'Nein' },
+    { k: 'Stile', v: 'Blackwork · Feine Linien' },
+    { k: 'Sprachen', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: 'Kontakt', v: 'E-Mail' },
+  ],
+  reel: { tag: 'Bewegung', lead: 'Verheilte Arbeiten, im Studio.' },
+  book: {
+    titleA: 'Schreib mir für',
+    titleB: 'dein Motiv',
+    sub: 'Keine Walk-ins. Nur nach Vereinbarung.',
+    send: 'Schick mir',
+    brief: ['Referenz', 'Stelle', 'Ungefähre Grösse'],
+  },
+  contact: {
+    cta: 'Sami mailen',
+    copy: 'Adresse kopieren',
+    copied: 'Kopiert',
+    mailSubject: 'Tattoo-Anfrage — S.Ink',
+    mailBody: 'Hoi Sami,\n\nReferenz: \nStelle: \nUngefähre Grösse: \nMeine Verfügbarkeit: \n\nDanke',
+  },
+  footer: { backToTop: 'Nach oben' },
+  labels: {
+    placements: {
+      'Upper back': 'Oberer Rücken',
+      Shoulder: 'Schulter',
+      Forearm: 'Unterarm',
+      Ribs: 'Rippen',
+      Calf: 'Wade',
+      Shin: 'Schienbein',
+    },
+    workStyles: {
+      Blackwork: 'Blackwork',
+      'Fine line': 'Feine Linien',
+      Lettering: 'Schriftzug',
+      Ornamental: 'Ornamental',
+    },
+    workTitles: {
+      owl: 'Eule',
+      dobermann: 'Dobermann',
+      faravahar: 'Faravahar',
+      anatomy: 'Anatomie',
+      scorpion: 'Skorpion',
+      stars: 'Sterne',
+      bloom: 'Blüte',
+      widow: 'Witwe',
+      thorn: 'Dorn',
+      hourglass: 'Sanduhr',
+      father: 'Vater',
+      ridge: 'Grat',
+      grin: 'Grinsen',
+      engel: 'Engel',
+      memories: 'Erinnerungen',
+      family: 'Familie 家庭',
+    },
+  },
+};
+
+export default deCH;

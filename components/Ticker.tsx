@@ -1,4 +1,4 @@
-import { TICKER } from '@/lib/site';
+import type { Dictionary } from '@/lib/i18n';
 import styles from './Ticker.module.css';
 
 /**
@@ -9,13 +9,13 @@ import styles from './Ticker.module.css';
  * resets, so the seam never shows. `aria-hidden` on the duplicate keeps screen
  * readers from hearing everything twice.
  */
-export function Ticker() {
+export function Ticker({ t }: { t: Dictionary }) {
   return (
     <div className={styles.ticker}>
       <div className={styles.track}>
         {[0, 1].map((copy) => (
           <ul className={styles.list} key={copy} aria-hidden={copy === 1 || undefined}>
-            {TICKER.map((word) => (
+            {t.ticker.map((word) => (
               <li key={word} className={styles.item}>
                 <span className={styles.star} aria-hidden="true">
                   ✳

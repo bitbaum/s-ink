@@ -1,0 +1,86 @@
+import type { Dictionary } from '../types';
+
+const zh: Dictionary = {
+  localeLabel: '简体中文',
+  role: '纹身师',
+  tagline: '细线 · 纯黑',
+  nav: { work: '作品', styles: '风格', studio: '工作室', book: '预约' },
+  hero: {
+    pieces: '件作品',
+    appointment: '仅限预约 / 不接受临时到访',
+    scroll: '向下',
+  },
+  sections: {
+    work: { index: '01 / 作品', title: '精选' },
+    styles: { index: '02 / 风格', title: '他的手法' },
+    studio: { index: '03 / 工作室', title: '详情' },
+    book: { index: '04 / 预约' },
+  },
+  ticker: ['纯黑', '细线', '字体', '纹饰', '遮盖', '手绘'],
+  styles: [
+    { title: '纯黑', note: '实心填充。硬边。' },
+    { title: '细线', note: '一根针。不做填充。' },
+    { title: '字体', note: '手写、字符、名字。' },
+    { title: '纹饰', note: '承袭而来的几何。' },
+  ],
+  studio: [
+    { k: '纹身师', v: 'Sami Tutar' },
+    { k: '预约', v: '仅限预约' },
+    { k: '临时到访', v: '不接受' },
+    { k: '风格', v: '纯黑 · 细线' },
+    { k: '语言', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: '联系', v: '邮件' },
+  ],
+  reel: { tag: '动态', lead: '愈合后的作品，在工作室。' },
+  book: {
+    titleA: '写邮件聊聊',
+    titleB: '你的图案',
+    sub: '不接受临时到访。仅限预约。',
+    send: '请提供',
+    brief: ['参考图', '位置', '大致尺寸'],
+  },
+  contact: {
+    cta: '给 Sami 发邮件',
+    copy: '复制邮箱',
+    copied: '已复制',
+    mailSubject: '纹身咨询 — S.Ink',
+    mailBody: '你好 Sami，\n\n参考图：\n位置：\n大致尺寸：\n我方便的时间：\n\n谢谢',
+  },
+  footer: { backToTop: '回到顶部' },
+  labels: {
+    placements: {
+      'Upper back': '上背',
+      Shoulder: '肩膀',
+      Forearm: '前臂',
+      Ribs: '肋侧',
+      Calf: '小腿',
+      Shin: '胫前',
+    },
+    workStyles: {
+      Blackwork: '纯黑',
+      'Fine line': '细线',
+      Lettering: '字体',
+      Ornamental: '纹饰',
+    },
+    workTitles: {
+      owl: '猫头鹰',
+      dobermann: '杜宾',
+      faravahar: '法拉瓦哈',
+      anatomy: '心脏',
+      scorpion: '蝎子',
+      stars: '星星',
+      bloom: '花',
+      widow: '寡妇蛛',
+      thorn: '荆棘',
+      hourglass: '沙漏',
+      father: '父亲',
+      ridge: '山脊',
+      grin: '笑脸',
+      engel: '天使',
+      memories: '回忆',
+      family: '家庭',
+    },
+  },
+};
+
+export default zh;

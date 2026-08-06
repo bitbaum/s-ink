@@ -1,5 +1,17 @@
 {
   "_comment": "SSOT for the portfolio. Consumed by scripts/process-media.py (which crops/grades the originals) and by the site (which renders them). Add a piece here and it appears in both — nowhere else needs editing. `source` is the untouched WhatsApp original; `focus`/`zoom` frame the crop (0.5,0.5 = centre, zoom 1 = full frame).",
+  "portrait": {
+    "id": "sami",
+    "source": "WhatsApp Image 2026-08-06 at 15.31.01.jpeg",
+    "title": "Sami Tutar",
+    "shape": "wide",
+    "focus": [
+      0.5,
+      0.4
+    ],
+    "zoom": 1.0,
+    "grade": "portrait"
+  },
   "works": [
     {
       "id": "owl",

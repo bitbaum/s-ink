@@ -1,0 +1,67 @@
+.wrap {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.trigger:hover {
+  color: var(--color-text);
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-inline: 3px solid transparent;
+  border-top: 4px solid currentColor;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 10;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.55);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  /* The label is written in its own script, so let it use whatever face the
+     platform has for that language rather than forcing the Latin display font. */
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: none;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.option:hover,
+.option[data-current='true'] {
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.code {
+  min-width: 3.2rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}

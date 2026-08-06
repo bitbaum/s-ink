@@ -1,0 +1,83 @@
+.actions {
+  display: grid;
+  gap: 1rem;
+}
+
+/* The one filled control on the site. Everything else is a hairline, so this
+   reads as the single thing the page wants you to do. */
+.primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.1rem, 2.6vw, 1.6rem) clamp(1.25rem, 3vw, 2rem);
+  min-height: 56px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  transition:
+    filter var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  filter: brightness(1.12);
+}
+
+.primary:active {
+  transform: translateY(1px);
+}
+
+.primaryLabel {
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  font-size: 1.4rem;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.primary:hover .arrow,
+.primary:focus-visible .arrow {
+  transform: translateX(0.35rem);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.9rem;
+}
+
+.address {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+  /* An address is the one string on the page nobody should have to squint at. */
+  letter-spacing: 0.08em;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+
+.address:hover {
+  color: var(--color-accent);
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.copy:hover {
+  color: var(--color-accent);
+}

@@ -1,4 +1,6 @@
-import { BRIEF, LINKS, SITE } from '@/lib/site';
+import { ContactActions } from '@/components/ContactActions';
+import type { Dictionary } from '@/lib/i18n';
+import { LINKS } from '@/lib/site';
 import styles from './Book.module.css';
 
 /**
@@ -9,31 +11,43 @@ import styles from './Book.module.css';
  * driven entirely by LINKS — while that is empty the section still stands on
  * its own, stating what to send rather than showing a link that goes nowhere.
  */
-export function Book() {
+export function Book({ t }: { t: Dictionary }) {
   return (
     <section id="book" className={styles.section}>
       <div className={`shell ${styles.inner}`}>
         <div className={`reveal ${styles.headline}`}>
-          <span className={`micro ${styles.tag}`}>04 / Book</span>
+          <span className={`micro ${styles.tag}`}>{t.sections.book.index}</span>
           <h2 className={styles.title}>
-            DM to discuss
+            {t.book.titleA}
             <br />
-            <span className={styles.outline}>your piece</span>
+            <span className={styles.outline}>{t.book.titleB}</span>
           </h2>
-          <p className={styles.sub}>No walk-ins. By appointment only.</p>
+          <p className={styles.sub}>{t.book.sub}</p>
         </div>
 
         <div className={styles.side}>
+          {/* The checklist sits above the button on purpose: by the time the
+              visitor reaches the CTA they know what to put in the message, and
+              the pre-filled body then matches what they just read. */}
           <ol className={`reveal ${styles.brief}`}>
-            <li className={`micro ${styles.briefHead}`}>Send</li>
-            {BRIEF.map((item, i) => (
+            <li className={`micro ${styles.briefHead}`}>{t.book.send}</li>
+            {t.book.brief.map((item, i) => (
               <li key={item} className={styles.briefItem}>
-                <span className={`micro ${styles.n}`}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={`micro ${styles.n}`}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 {item}
               </li>
             ))}
           </ol>
 
+          <div className="reveal">
+            <ContactActions t={t} />
+          </div>
+
+          {/* Secondary destinations — Instagram and the like. Email is the
+              booking route, so these sit below it and only appear once real
+              handles are configured in lib/site.ts. */}
           {LINKS.length > 0 ? (
             <ul className={styles.cards}>
               {LINKS.map((d, i) => (
@@ -61,11 +75,7 @@ export function Book() {
                 </li>
               ))}
             </ul>
-          ) : (
-            <p className={`reveal ${styles.wordmark}`} aria-label={SITE.name}>
-              {SITE.name}
-            </p>
-          )}
+          ) : null}
         </div>
       </div>
     </section>

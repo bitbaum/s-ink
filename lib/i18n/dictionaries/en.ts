@@ -1,0 +1,86 @@
+import type { Dictionary } from '../types';
+
+const en: Dictionary = {
+  localeLabel: 'English',
+  role: 'Tattoo artist',
+  tagline: 'Fine line · Blackwork',
+  nav: { work: 'Work', styles: 'Styles', studio: 'Studio', book: 'Book' },
+  hero: {
+    pieces: 'pieces',
+    appointment: 'By appointment / No walk-ins',
+    scroll: 'Scroll',
+  },
+  sections: {
+    work: { index: '01 / Work', title: 'Selected' },
+    styles: { index: '02 / Styles', title: 'What he does' },
+    studio: { index: '03 / Studio', title: 'Details' },
+    book: { index: '04 / Book' },
+  },
+  ticker: ['Blackwork', 'Fine line', 'Lettering', 'Ornamental', 'Cover-up', 'Freehand'],
+  styles: [
+    { title: 'Blackwork', note: 'Solid fill. Hard edges.' },
+    { title: 'Fine line', note: 'One needle. No filler.' },
+    { title: 'Lettering', note: 'Script, character, name.' },
+    { title: 'Ornamental', note: 'Heritage geometry.' },
+  ],
+  studio: [
+    { k: 'Artist', v: 'Sami Tutar' },
+    { k: 'Booking', v: 'By appointment' },
+    { k: 'Walk-ins', v: 'No' },
+    { k: 'Styles', v: 'Blackwork · Fine line' },
+    { k: 'Languages', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: 'Contact', v: 'Email' },
+  ],
+  reel: { tag: 'Motion', lead: 'Healed work, in the room.' },
+  book: {
+    titleA: 'Email to discuss',
+    titleB: 'your piece',
+    sub: 'No walk-ins. By appointment only.',
+    send: 'Send',
+    brief: ['Reference', 'Placement', 'Rough size'],
+  },
+  contact: {
+    cta: 'Email Sami',
+    copy: 'Copy address',
+    copied: 'Copied',
+    mailSubject: 'Tattoo enquiry — S.Ink',
+    mailBody: 'Hi Sami,\n\nReference: \nPlacement: \nRough size: \nWhen I am free: \n\nThanks',
+  },
+  footer: { backToTop: 'Back to top' },
+  labels: {
+    placements: {
+      'Upper back': 'Upper back',
+      Shoulder: 'Shoulder',
+      Forearm: 'Forearm',
+      Ribs: 'Ribs',
+      Calf: 'Calf',
+      Shin: 'Shin',
+    },
+    workStyles: {
+      Blackwork: 'Blackwork',
+      'Fine line': 'Fine line',
+      Lettering: 'Lettering',
+      Ornamental: 'Ornamental',
+    },
+    workTitles: {
+      owl: 'Owl',
+      dobermann: 'Dobermann',
+      faravahar: 'Faravahar',
+      anatomy: 'Anatomy',
+      scorpion: 'Scorpion',
+      stars: 'Stars',
+      bloom: 'Bloom',
+      widow: 'Widow',
+      thorn: 'Thorn',
+      hourglass: 'Hourglass',
+      father: 'Father',
+      ridge: 'Ridge',
+      grin: 'Grin',
+      engel: 'Engel',
+      memories: 'Memories',
+      family: 'Family 家庭',
+    },
+  },
+};
+
+export default en;

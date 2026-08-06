@@ -1,0 +1,86 @@
+import type { Dictionary } from '../types';
+
+const ko: Dictionary = {
+  localeLabel: '한국어',
+  role: '타투이스트',
+  tagline: '파인라인 · 블랙워크',
+  nav: { work: '작업', styles: '스타일', studio: '스튜디오', book: '예약' },
+  hero: {
+    pieces: '점',
+    appointment: '예약제 / 워크인 불가',
+    scroll: '스크롤',
+  },
+  sections: {
+    work: { index: '01 / 작업', title: '셀렉션' },
+    styles: { index: '02 / 스타일', title: '작업 방식' },
+    studio: { index: '03 / 스튜디오', title: '상세' },
+    book: { index: '04 / 예약' },
+  },
+  ticker: ['블랙워크', '파인라인', '레터링', '오너멘탈', '커버업', '프리핸드'],
+  styles: [
+    { title: '블랙워크', note: '채운 검정. 단단한 선.' },
+    { title: '파인라인', note: '바늘 하나. 채움 없음.' },
+    { title: '레터링', note: '필기체, 문자, 이름.' },
+    { title: '오너멘탈', note: '이어받은 기하학.' },
+  ],
+  studio: [
+    { k: '타투이스트', v: 'Sami Tutar' },
+    { k: '예약', v: '예약제' },
+    { k: '워크인', v: '불가' },
+    { k: '스타일', v: '블랙워크 · 파인라인' },
+    { k: '언어', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: '연락', v: '메일' },
+  ],
+  reel: { tag: '모션', lead: '아문 작업, 스튜디오에서.' },
+  book: {
+    titleA: '메일로',
+    titleB: '상담하세요',
+    sub: '워크인 불가. 예약제만 운영합니다.',
+    send: '보낼 것',
+    brief: ['레퍼런스', '위치', '대략적인 크기'],
+  },
+  contact: {
+    cta: 'Sami에게 메일',
+    copy: '주소 복사',
+    copied: '복사됨',
+    mailSubject: '타투 문의 — S.Ink',
+    mailBody: '안녕하세요 Sami,\n\n레퍼런스: \n위치: \n대략적인 크기: \n가능한 일정: \n\n감사합니다',
+  },
+  footer: { backToTop: '맨 위로' },
+  labels: {
+    placements: {
+      'Upper back': '등 위쪽',
+      Shoulder: '어깨',
+      Forearm: '팔뚝',
+      Ribs: '갈비',
+      Calf: '종아리',
+      Shin: '정강이',
+    },
+    workStyles: {
+      Blackwork: '블랙워크',
+      'Fine line': '파인라인',
+      Lettering: '레터링',
+      Ornamental: '오너멘탈',
+    },
+    workTitles: {
+      owl: '올빼미',
+      dobermann: '도베르만',
+      faravahar: '파라바하르',
+      anatomy: '심장',
+      scorpion: '전갈',
+      stars: '별',
+      bloom: '꽃',
+      widow: '거미',
+      thorn: '가시',
+      hourglass: '모래시계',
+      father: '아버지',
+      ridge: '능선',
+      grin: '미소',
+      engel: '천사',
+      memories: '기억',
+      family: '가족 家庭',
+    },
+  },
+};
+
+export default ko;

@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 
 import { Lightbox } from '@/components/Lightbox';
 import { SectionHead } from '@/components/SectionHead';
+import type { Dictionary } from '@/lib/i18n';
 import type { Work } from '@/lib/works';
 import styles from './Gallery.module.css';
 
@@ -15,7 +16,7 @@ import styles from './Gallery.module.css';
  * that draw themselves on hover — the detail that ties the grid to the
  * instrument-panel language of the hero.
  */
-export function Gallery({ works }: { works: Work[] }) {
+export function Gallery({ t, works }: { t: Dictionary; works: Work[] }) {
   const [open, setOpen] = useState<number | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
@@ -28,9 +29,9 @@ export function Gallery({ works }: { works: Work[] }) {
   return (
     <section id="work" className={`shell ${styles.section}`}>
       <SectionHead
-        index="01 / Work"
-        title="Selected"
-        note={`${String(works.length).padStart(2, '0')} pieces`}
+        index={t.sections.work.index}
+        title={t.sections.work.title}
+        note={`${String(works.length).padStart(2, '0')} ${t.hero.pieces}`}
       />
 
       <ul className={styles.grid}>
@@ -46,7 +47,7 @@ export function Gallery({ works }: { works: Work[] }) {
               type="button"
               className={styles.tile}
               onClick={() => setOpen(i)}
-              aria-label={`View ${work.title} — ${work.style}, ${work.placement}`}
+              aria-label={work.alt}
             >
               <span className={styles.frame}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- pre-processed
