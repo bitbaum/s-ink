@@ -6,6 +6,7 @@ const fr: Dictionary = {
   tagline: 'Ligne fine · Blackwork',
   nav: { work: 'Travaux', styles: 'Styles', studio: 'Studio', book: 'Rendez-vous' },
   hero: {
+    cta: 'Réserver',
     pieces: 'pièces',
     appointment: 'Sur rendez-vous / Sans visite spontanée',
     scroll: 'Défiler',
@@ -30,6 +31,7 @@ const fr: Dictionary = {
     { k: 'Styles', v: 'Blackwork · Ligne fine' },
     { k: 'Langues', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: 'Contact', v: 'E-mail' },
+    { k: 'Paiement', v: 'Espèces · Bitcoin' },
   ],
   reel: { tag: 'Mouvement', lead: 'Travaux cicatrisés, en studio.' },
   book: {

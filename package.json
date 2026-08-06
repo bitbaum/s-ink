@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run lint && npm run typecheck && npm run build",
-    "media": "python3 scripts/process-media.py"
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "media": "python3 scripts/process-media.py",
+    "test": "vitest run"
   },
   "dependencies": {
     "next": "16.3.0",
@@ -22,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }

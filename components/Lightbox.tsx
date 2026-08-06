@@ -37,6 +37,26 @@ export function Lightbox({
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowRight') onStep(1);
       if (e.key === 'ArrowLeft') onStep(-1);
+      if (e.key !== 'Tab') return;
+
+      // Trap focus. `aria-modal` tells assistive tech the rest of the page is
+      // inert but does nothing for the Tab key, so without this a keyboard user
+      // tabs straight out of the viewer and into a page they cannot see.
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (e.shiftKey && (active === first || active === dialogRef.current)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener('keydown', onKey);
 

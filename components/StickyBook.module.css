@@ -1,0 +1,50 @@
+/* Phones only. On desktop the nav is always visible and the hero button stays
+   in reach, so a floating bar would be clutter. */
+.bar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 55;
+  padding: 0.75rem var(--gutter) calc(0.75rem + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--color-bg) 55%, transparent);
+  transform: translateY(120%);
+  transition: transform var(--dur-mid) var(--ease-out);
+  pointer-events: none;
+}
+
+.bar[data-shown='true'] {
+  transform: none;
+  pointer-events: auto;
+}
+
+@media (min-width: 60rem) {
+  .bar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.9rem 1.25rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+}
+
+.arrow {
+  font-size: 1.25rem;
+}
