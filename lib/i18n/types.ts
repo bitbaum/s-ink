@@ -12,7 +12,7 @@ export interface Dictionary {
   role: string;
   tagline: string;
   nav: { work: string; styles: string; studio: string; book: string };
-  hero: { pieces: string; appointment: string; scroll: string };
+  hero: { cta: string; pieces: string; appointment: string; scroll: string };
   sections: {
     work: { index: string; title: string };
     styles: { index: string; title: string };

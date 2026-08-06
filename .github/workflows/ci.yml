@@ -1,7 +1,9 @@
 # Golden CI floor — see dotfiles/templates/ci/README.md.
-# s-ink: npm, no database, no services. `verify` (lint + typecheck + build) is
-# the SSOT for what "green" means and is defined once in package.json, so this
-# job and a local run check exactly the same things.
+# s-ink: npm, no database, no services. `verify` (lint + typecheck + test +
+# build) is the SSOT for what "green" means and is defined once in package.json,
+# so this job and a local run check exactly the same things — including that
+# every piece in the works manifest has its processed media, which the build
+# alone cannot catch.
 name: CI
 
 on:
@@ -24,28 +26,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install
         run: npm ci
 
-      # lint + typecheck + build, defined in package.json `verify`.
       - name: Verify
         run: npm run verify
-
-      # The site is only worth shipping if the processed media is actually
-      # there; a missing export renders as an empty tile, which the build
-      # itself will not catch.
-      - name: Media present
-        run: |
-          missing=0
-          for id in $(node -e "console.log(require('./content/works.json').works.map(w=>w.id).join(' '))"); do
-            for f in "public/work/$id.webp" "public/work/$id-thumb.webp"; do
-              [ -f "$f" ] || { echo "::error::missing $f"; missing=1; }
-            done
-          done
-          for id in $(node -e "console.log(require('./content/works.json').reels.map(r=>r.id).join(' '))"); do
-            [ -f "public/work/$id.mp4" ] || { echo "::error::missing public/work/$id.mp4"; missing=1; }
-          done
-          exit $missing

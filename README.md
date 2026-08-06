@@ -47,8 +47,24 @@ changes.
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run verify     # lint + typecheck + build — the same command CI runs
+npm run verify     # lint + typecheck + test + build — the same command CI runs
+npm run test       # vitest only
 ```
+
+### What the tests cover
+
+Not coverage for its own sake — each suite closes a gap the type checker, the
+linter and the build all miss:
+
+- **i18n parity.** TypeScript guarantees every dictionary's *shape*, not its
+  array *lengths*, and not that the label maps cover the vocabulary used in the
+  manifest. A locale with three styles instead of four compiles perfectly and
+  renders a gap.
+- **Media exports.** A missing export renders as an empty tile: the build
+  succeeds and the hole is only visible to whoever scrolls that far.
+- **Regressions.** One test per bug that actually shipped here — see
+  `tests/regressions.test.ts`. Each was invisible to every other check and two
+  of them made whole sections of the page disappear.
 
 Design review screenshots (needs a checkout that already has Playwright):
 

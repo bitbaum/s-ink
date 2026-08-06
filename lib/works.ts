@@ -7,6 +7,7 @@
  * touching the manifest.
  */
 import type { Dictionary } from '@/lib/i18n';
+import { SITE } from '@/lib/site';
 import manifest from '@/content/works.json';
 
 export type Shape = 'portrait' | 'wide' | 'square';
@@ -48,12 +49,10 @@ export function getWorks(t: Dictionary): Work[] {
       featured: 'featured' in w && Boolean(w.featured),
       src: `/work/${w.id}.webp`,
       thumb: `/work/${w.id}-thumb.webp`,
-      alt: `${style} — ${title}, ${placement}. ${SITE_ARTIST}`,
+      alt: `${style} — ${title}, ${placement}. ${SITE.artist}, ${SITE.name}`,
     };
   });
 }
-
-const SITE_ARTIST = 'Sami Tutar, S.Ink';
 
 export function getReels(): Reel[] {
   return manifest.reels.map((r) => ({

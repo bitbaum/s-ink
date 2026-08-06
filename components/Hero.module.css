@@ -36,6 +36,10 @@
   }
 }
 
+/* Ends at opacity 1, matching .backdrop img. The animation runs with fill
+   `both`, so whatever the last keyframe says WINS over the rule above it —
+   leaving a stale value here silently dims the hero and looks like a CSS
+   ordering bug rather than an animation one. */
 @keyframes drift-in {
   from {
     transform: scale(1.09);
@@ -43,7 +47,7 @@
   }
   to {
     transform: scale(1);
-    opacity: 0.38;
+    opacity: 1;
   }
 }
 
@@ -64,7 +68,9 @@
       color-mix(in srgb, var(--color-border-strong) 40%, transparent) 0 1px,
       transparent 1px 9vw
     );
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 78%);
+  /* Not a design token: a mask stop is an alpha value, and swapping in a
+     themed colour here would change nothing but the reader's expectations. */
+  mask-image: linear-gradient(to bottom, rgb(0 0 0) 0%, transparent 78%);
 }
 
 /* The scrim. Now that the portrait runs at near-full strength this is the only
@@ -227,5 +233,46 @@
   .bl,
   .tl {
     display: none;
+  }
+}
+
+/* Primary action on the first screen. Filled, so it reads as the one thing to
+   do against a page made entirely of hairlines. */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(0.9rem, 2vw, 1.15rem) clamp(1.4rem, 3vw, 2rem);
+  min-height: 52px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: filter var(--dur-fast) var(--ease-out);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  filter: brightness(1.12);
+}
+
+.ctaArrow {
+  font-size: 1.2em;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.cta:hover .ctaArrow,
+.cta:focus-visible .ctaArrow {
+  transform: translateX(0.35rem);
+}
+
+/* The sticky bar takes over on phones, so the hero button would be a duplicate
+   sitting a thumb's width away from it. */
+@media (max-width: 60rem) {
+  .cta {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
   }
 }

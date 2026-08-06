@@ -6,6 +6,7 @@ import { Gallery } from '@/components/Gallery';
 import { Hero } from '@/components/Hero';
 import { Nav } from '@/components/Nav';
 import { Reel } from '@/components/Reel';
+import { StickyBook } from '@/components/StickyBook';
 import { Studio } from '@/components/Studio';
 import { Styles } from '@/components/Styles';
 import { Ticker } from '@/components/Ticker';
@@ -59,6 +60,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Book t={t} />
       </main>
       <Footer t={t} year={new Date().getFullYear()} />
+      <StickyBook t={t} />
     </>
   );
 }

@@ -6,6 +6,7 @@ const ja: Dictionary = {
   tagline: 'ファインライン · ブラックワーク',
   nav: { work: '作品', styles: 'スタイル', studio: 'スタジオ', book: '予約' },
   hero: {
+    cta: '予約する',
     pieces: '点',
     appointment: '完全予約制 / 当日受付なし',
     scroll: 'スクロール',
@@ -37,6 +38,7 @@ const ja: Dictionary = {
     { k: 'スタイル', v: 'ブラックワーク · ファインライン' },
     { k: '対応言語', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: '連絡', v: 'メール' },
+    { k: 'お支払い', v: '現金 · ビットコイン' },
   ],
   reel: { tag: 'モーション', lead: '定着後の作品、スタジオにて。' },
   book: {

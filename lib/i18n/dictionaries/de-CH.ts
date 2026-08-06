@@ -7,6 +7,7 @@ const deCH: Dictionary = {
   tagline: 'Feine Linien · Blackwork',
   nav: { work: 'Arbeiten', styles: 'Stile', studio: 'Studio', book: 'Termin' },
   hero: {
+    cta: 'Termin buchen',
     pieces: 'Stücke',
     appointment: 'Nur nach Vereinbarung / Keine Walk-ins',
     scroll: 'Scrollen',
@@ -31,6 +32,7 @@ const deCH: Dictionary = {
     { k: 'Stile', v: 'Blackwork · Feine Linien' },
     { k: 'Sprachen', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: 'Kontakt', v: 'E-Mail' },
+    { k: 'Zahlung', v: 'Bar · Bitcoin' },
   ],
   reel: { tag: 'Bewegung', lead: 'Verheilte Arbeiten, im Studio.' },
   book: {

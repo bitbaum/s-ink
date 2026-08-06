@@ -6,6 +6,7 @@ const zh: Dictionary = {
   tagline: '细线 · 纯黑',
   nav: { work: '作品', styles: '风格', studio: '工作室', book: '预约' },
   hero: {
+    cta: '立即预约',
     pieces: '件作品',
     appointment: '仅限预约 / 不接受临时到访',
     scroll: '向下',
@@ -30,6 +31,7 @@ const zh: Dictionary = {
     { k: '风格', v: '纯黑 · 细线' },
     { k: '语言', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
     { k: '联系', v: '邮件' },
+    { k: '付款', v: '现金 · 比特币' },
   ],
   reel: { tag: '动态', lead: '愈合后的作品，在工作室。' },
   book: {
