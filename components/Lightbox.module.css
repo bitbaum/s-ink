@@ -1,0 +1,139 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: color-mix(in srgb, var(--color-bg) 96%, transparent);
+  backdrop-filter: blur(18px);
+  padding: 1rem clamp(1rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem);
+  animation: fade var(--dur-mid) var(--ease-out);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.counter {
+  color: var(--color-text);
+}
+
+.slash {
+  color: var(--color-accent);
+  padding-inline: 0.4em;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding-inline: 0.25rem;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.close:hover {
+  color: var(--color-accent);
+}
+
+.figure {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+  margin: 0;
+  min-height: 0;
+  padding-block: clamp(1rem, 3vw, 2rem);
+}
+
+.image {
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  animation: rise var(--dur-mid) var(--ease-out);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.title {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.arrow:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.prev {
+  left: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.next {
+  right: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* On a phone the side arrows overlap the image; swiping is not wired up, so
+   move them to a reachable row at the bottom instead of hiding them. */
+@media (max-width: 40rem) {
+  .arrow {
+    top: auto;
+    bottom: 0.75rem;
+    translate: none;
+  }
+
+  .prev {
+    left: 25%;
+  }
+
+  .next {
+    right: 25%;
+  }
+
+  .caption {
+    padding-bottom: 3.5rem;
+  }
+}

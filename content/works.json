@@ -1,0 +1,228 @@
+{
+  "_comment": "SSOT for the portfolio. Consumed by scripts/process-media.py (which crops/grades the originals) and by the site (which renders them). Add a piece here and it appears in both — nowhere else needs editing. `source` is the untouched WhatsApp original; `focus`/`zoom` frame the crop (0.5,0.5 = centre, zoom 1 = full frame).",
+  "works": [
+    {
+      "id": "owl",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (8).jpeg",
+      "title": "Owl",
+      "placement": "Upper back",
+      "style": "Blackwork",
+      "shape": "wide",
+      "featured": true,
+      "focus": [
+        0.5,
+        0.44
+      ],
+      "zoom": 1.25
+    },
+    {
+      "id": "dobermann",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (7).jpeg",
+      "title": "Dobermann",
+      "placement": "Shoulder",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.44,
+        0.42
+      ],
+      "zoom": 1.35
+    },
+    {
+      "id": "faravahar",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (9).jpeg",
+      "title": "Faravahar",
+      "placement": "Forearm",
+      "style": "Ornamental",
+      "shape": "portrait",
+      "focus": [
+        0.45,
+        0.53
+      ],
+      "zoom": 1.9
+    },
+    {
+      "id": "anatomy",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51.jpeg",
+      "title": "Anatomy",
+      "placement": "Forearm",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.45,
+        0.55
+      ],
+      "zoom": 1.4
+    },
+    {
+      "id": "scorpion",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (4).jpeg",
+      "title": "Scorpion",
+      "placement": "Ribs",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.5,
+        0.38
+      ],
+      "zoom": 2.0
+    },
+    {
+      "id": "stars",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (14).jpeg",
+      "title": "Stars",
+      "placement": "Forearm",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.45,
+        0.45
+      ],
+      "zoom": 1.2
+    },
+    {
+      "id": "bloom",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (13).jpeg",
+      "title": "Bloom",
+      "placement": "Shin",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.57,
+        0.495
+      ],
+      "zoom": 1.85
+    },
+    {
+      "id": "widow",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (16).jpeg",
+      "title": "Widow",
+      "placement": "Forearm",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.45,
+        0.42
+      ],
+      "zoom": 1.5
+    },
+    {
+      "id": "thorn",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50.jpeg",
+      "title": "Thorn",
+      "placement": "Forearm",
+      "style": "Ornamental",
+      "shape": "portrait",
+      "focus": [
+        0.55,
+        0.5
+      ],
+      "zoom": 1.35
+    },
+    {
+      "id": "hourglass",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (2).jpeg",
+      "title": "Hourglass",
+      "placement": "Forearm",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "zoom": 1.15
+    },
+    {
+      "id": "father",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (18).jpeg",
+      "title": "Father",
+      "placement": "Forearm",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.42,
+        0.48
+      ],
+      "zoom": 1.45
+    },
+    {
+      "id": "ridge",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (12).jpeg",
+      "title": "Ridge",
+      "placement": "Calf",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.47,
+        0.32
+      ],
+      "zoom": 2.2
+    },
+    {
+      "id": "grin",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50 (5).jpeg",
+      "title": "Grin",
+      "placement": "Forearm",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.42,
+        0.36
+      ],
+      "zoom": 1.7
+    },
+    {
+      "id": "engel",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50 (1).jpeg",
+      "title": "Engel",
+      "placement": "Forearm",
+      "style": "Lettering",
+      "shape": "wide",
+      "focus": [
+        0.47,
+        0.36
+      ],
+      "zoom": 1.35
+    },
+    {
+      "id": "memories",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (11).jpeg",
+      "title": "Memories",
+      "placement": "Ribs",
+      "style": "Lettering",
+      "shape": "portrait",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "zoom": 1.4
+    },
+    {
+      "id": "family",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (5).jpeg",
+      "title": "Family 家庭",
+      "placement": "Calf",
+      "style": "Lettering",
+      "shape": "portrait",
+      "focus": [
+        0.615,
+        0.455
+      ],
+      "zoom": 2.0
+    }
+  ],
+  "reels": [
+    {
+      "id": "reel-sleeve",
+      "source": "WhatsApp Video 2026-08-06 at 12.55.51 (1).mp4",
+      "title": "Sleeve",
+      "start": 0.6
+    },
+    {
+      "id": "reel-forearm",
+      "source": "WhatsApp Video 2026-08-06 at 12.55.51.mp4",
+      "title": "Forearm",
+      "start": 12.0
+    }
+  ]
+}

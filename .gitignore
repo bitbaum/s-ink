@@ -2,3 +2,8 @@ node_modules
 .next
 out
 .env*
+.claude/worktrees
+.playwright-mcp
+*.jpeg
+next-env.d.ts
+*.tsbuildinfo

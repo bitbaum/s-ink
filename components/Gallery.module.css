@@ -1,0 +1,176 @@
+.section {
+  padding-block: var(--section-gap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.2vw, 2.2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* A two-column tile landing on the last free column wraps and leaves a hole
+     behind it. Dense packing backfills that hole with the next portrait tile,
+     and keeps doing so as pieces are added — the alternative is hand-ordering
+     the manifest so the wide frames happen to start a row, which breaks the
+     first time someone inserts a piece. */
+  grid-auto-flow: dense;
+}
+
+/* The wide frames earn two columns; everything else is a portrait tile. This is
+   the only asymmetry in the grid and it is driven by the manifest, not by
+   nth-child guesswork that breaks the moment a piece is reordered. */
+.cell[data-shape='wide'] {
+  grid-column: span 2;
+}
+
+/* Nudge the middle column out of alignment so the grid reads as editorial
+   rather than as a spreadsheet. */
+@media (min-width: 60rem) {
+  .cell:nth-child(3n + 2) {
+    transform: translateY(clamp(1.5rem, 4vw, 4rem));
+  }
+}
+
+.tile {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  aspect-ratio: 4 / 5;
+}
+
+.cell[data-shape='wide'] .frame {
+  aspect-ratio: 16 / 10;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Tiles sit slightly knocked back; hovering brings the piece fully up. The
+     grade already did the heavy lifting, so this is a small lift, not a filter. */
+  filter: brightness(0.86) contrast(1.02);
+  transform: scale(1.005);
+  transition:
+    transform var(--dur-slow) var(--ease-out),
+    filter var(--dur-mid) var(--ease-out);
+}
+
+.tile:hover .image,
+.tile:focus-visible .image {
+  filter: brightness(1.04) contrast(1.06);
+  transform: scale(1.045);
+}
+
+/* HUD corner brackets. Four L-shapes that grow in from the corners on hover. */
+.brackets i {
+  position: absolute;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 0 solid var(--color-accent);
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    inset var(--dur-mid) var(--ease-out);
+}
+
+.brackets i:nth-child(1) {
+  inset: 1.4rem auto auto 1.4rem;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.brackets i:nth-child(2) {
+  inset: 1.4rem 1.4rem auto auto;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.brackets i:nth-child(3) {
+  inset: auto auto 1.4rem 1.4rem;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.brackets i:nth-child(4) {
+  inset: auto 1.4rem 1.4rem auto;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+.tile:hover .brackets i,
+.tile:focus-visible .brackets i {
+  opacity: 1;
+}
+
+.tile:hover .brackets i:nth-child(1),
+.tile:focus-visible .brackets i:nth-child(1) {
+  inset: 0.7rem auto auto 0.7rem;
+}
+
+.tile:hover .brackets i:nth-child(2),
+.tile:focus-visible .brackets i:nth-child(2) {
+  inset: 0.7rem 0.7rem auto auto;
+}
+
+.tile:hover .brackets i:nth-child(3),
+.tile:focus-visible .brackets i:nth-child(3) {
+  inset: auto auto 0.7rem 0.7rem;
+}
+
+.tile:hover .brackets i:nth-child(4),
+.tile:focus-visible .brackets i:nth-child(4) {
+  inset: auto 0.7rem 0.7rem auto;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 0.75rem;
+  padding-top: 0.85rem;
+}
+
+.index {
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.placement {
+  grid-column: 2;
+}
+
+@media (max-width: 60rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cell[data-shape='wide'] {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 34rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cell[data-shape='wide'] {
+    grid-column: span 1;
+  }
+}

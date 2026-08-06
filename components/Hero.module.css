@@ -1,0 +1,223 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding-block: 8rem 5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The owl, bled off the right edge and pushed almost to black. It is texture
+   and depth here, not a photograph to be read — the gallery shows it properly. */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 38%;
+  opacity: 0.38;
+  filter: contrast(1.25) brightness(0.62);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .backdrop img {
+    animation: drift-in 2.4s var(--ease-out) both;
+  }
+}
+
+@keyframes drift-in {
+  from {
+    transform: scale(1.09);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0.38;
+  }
+}
+
+/* Hairline measuring grid. Fades out toward the bottom so it never competes
+   with the name sitting on top of it. */
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-border-strong) 55%, transparent) 0 1px,
+      transparent 1px 9vw
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-border-strong) 40%, transparent) 0 1px,
+      transparent 1px 9vw
+    );
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 78%);
+}
+
+/* Anchors the type: the frame darkens toward the lower-left where the name is. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, var(--color-bg) 2%, transparent 55%),
+    radial-gradient(120% 90% at 15% 100%, var(--color-bg) 10%, transparent 65%);
+}
+
+.inner {
+  width: 100%;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 clamp(0.75rem, 2vw, 1.5rem);
+  color: var(--color-text);
+}
+
+.rule {
+  display: block;
+  width: clamp(2rem, 8vw, 7rem);
+  height: 1px;
+  background: var(--color-accent);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rule {
+    animation: extend 1.2s var(--ease-out) 0.5s both;
+  }
+}
+
+@keyframes extend {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.name {
+  /* line-height below 1 lets the caps overshoot their box; the padding keeps
+     the top line clear of the eyebrow above it. */
+  margin: 0;
+  padding-top: 0.06em;
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: var(--tracking-hero);
+  text-transform: uppercase;
+}
+
+.line {
+  display: block;
+}
+
+/* Second line in outline only. The solid/hollow pair is what makes the name
+   read as a mark rather than as a heading. */
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-text);
+  /* Safari/WebKit lose the glyph entirely at some sizes without this pairing. */
+  paint-order: stroke fill;
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .outline {
+    color: var(--color-text-muted);
+  }
+}
+
+.corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corners span {
+  position: absolute;
+}
+
+.tl {
+  top: 5.5rem;
+  left: var(--gutter);
+}
+
+.tr {
+  top: 5.5rem;
+  right: var(--gutter);
+  color: var(--color-accent);
+}
+
+.bl {
+  bottom: 2rem;
+  left: var(--gutter);
+}
+
+.scroll {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.scroll:hover {
+  color: var(--color-text);
+}
+
+.scrollLine {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: currentColor;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scrollLine {
+    animation: sweep 2.2s var(--ease-out) infinite;
+  }
+}
+
+/* Reads as a needle travelling — a small nod to the machine. */
+@keyframes sweep {
+  0% {
+    transform: scaleX(0.15);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  51% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0.15);
+    transform-origin: right;
+  }
+}
+
+/* On short/narrow screens the corner readouts collide with the name. The name
+   is the priority; the instrument panel is decoration. */
+@media (max-width: 48rem), (max-height: 40rem) {
+  .bl,
+  .tl {
+    display: none;
+  }
+}

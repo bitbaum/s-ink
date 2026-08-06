@@ -1,0 +1,70 @@
+.section {
+  padding-block: var(--section-gap);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.spec {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: clamp(0.9rem, 2vw, 1.4rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.key {
+  margin: 0;
+}
+
+.value {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.plate {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  padding: 0.6rem;
+  background: var(--color-bg-raised);
+}
+
+.plate img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.plateCaption {
+  display: block;
+  padding-top: 0.7rem;
+}
+
+@media (max-width: 52rem) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    grid-template-columns: 7rem 1fr;
+  }
+
+  /* The plate is atmosphere; on a phone the spec sheet and the booking CTA
+     matter more than another image between them. */
+  .plate {
+    display: none;
+  }
+}
