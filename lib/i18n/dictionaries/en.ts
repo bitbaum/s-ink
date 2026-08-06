@@ -57,6 +57,8 @@ const en: Dictionary = {
       Ribs: 'Ribs',
       Calf: 'Calf',
       Shin: 'Shin',
+      Hand: 'Hand',
+      Chest: 'Chest',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -81,6 +83,11 @@ const en: Dictionary = {
       engel: 'Engel',
       memories: 'Memories',
       family: 'Family 家庭',
+      chevrons: 'Chevrons',
+      recluse: 'Recluse',
+      branches: 'Branches',
+      summit: 'Summit',
+      script: 'Dayê',
     },
   },
 };

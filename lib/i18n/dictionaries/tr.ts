@@ -57,6 +57,8 @@ const tr: Dictionary = {
       Ribs: 'Kaburga',
       Calf: 'Baldır',
       Shin: 'İncik',
+      Hand: 'El',
+      Chest: 'Göğüs',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -81,6 +83,11 @@ const tr: Dictionary = {
       engel: 'Melek',
       memories: 'Anılar',
       family: 'Aile 家庭',
+      chevrons: 'Şevronlar',
+      recluse: 'Münzevi',
+      branches: 'Dallar',
+      summit: 'Zirve',
+      script: 'Dayê',
     },
   },
 };

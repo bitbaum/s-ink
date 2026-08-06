@@ -64,6 +64,8 @@ const ja: Dictionary = {
       Ribs: '肋骨',
       Calf: 'ふくらはぎ',
       Shin: 'すね',
+      Hand: '手',
+      Chest: '胸',
     },
     workStyles: {
       Blackwork: 'ブラックワーク',
@@ -88,6 +90,11 @@ const ja: Dictionary = {
       engel: '天使',
       memories: '記憶',
       family: '家族 家庭',
+      chevrons: 'シェブロン',
+      recluse: 'イトグモ',
+      branches: '枝',
+      summit: '山頂',
+      script: 'Dayê',
     },
   },
 };

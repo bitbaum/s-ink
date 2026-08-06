@@ -57,6 +57,8 @@ const zh: Dictionary = {
       Ribs: '肋侧',
       Calf: '小腿',
       Shin: '胫前',
+      Hand: '手',
+      Chest: '胸口',
     },
     workStyles: {
       Blackwork: '纯黑',
@@ -81,6 +83,11 @@ const zh: Dictionary = {
       engel: '天使',
       memories: '回忆',
       family: '家庭',
+      chevrons: '人字纹',
+      recluse: '隐士蛛',
+      branches: '枝',
+      summit: '山顶',
+      script: 'Dayê',
     },
   },
 };

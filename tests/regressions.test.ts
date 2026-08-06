@@ -51,6 +51,17 @@ describe('regressions', () => {
     expect(read('components/Gallery.module.css')).toContain('grid-auto-flow: dense');
   });
 
+  it('backs the one-shot reveal with a scroll sweep', () => {
+    // IntersectionObserver reports once per frame, so a fast scroll can carry an
+    // element past the viewport without it ever being reported. The reveal never
+    // re-runs, so a missed frame is permanently invisible content, not a late
+    // animation. Measured: 21 of 35 targets stayed at opacity 0 after a fast
+    // programmatic scroll of the whole page.
+    const src = read('components/RevealObserver.tsx');
+    expect(src).toContain("addEventListener('scroll'");
+    expect(src).toContain('getBoundingClientRect');
+  });
+
   it('does not reference the retired orangecat subdomain as canonical', () => {
     expect(read('lib/site.ts')).toContain('https://sinktattoo.com');
     expect(read('lib/site.ts')).not.toContain('orangecat');

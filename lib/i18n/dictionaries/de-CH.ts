@@ -58,6 +58,8 @@ const deCH: Dictionary = {
       Ribs: 'Rippen',
       Calf: 'Wade',
       Shin: 'Schienbein',
+      Hand: 'Hand',
+      Chest: 'Brust',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -82,6 +84,11 @@ const deCH: Dictionary = {
       engel: 'Engel',
       memories: 'Erinnerungen',
       family: 'Familie 家庭',
+      chevrons: 'Chevrons',
+      recluse: 'Einsiedler',
+      branches: 'Äste',
+      summit: 'Gipfel',
+      script: 'Dayê',
     },
   },
 };

@@ -57,6 +57,8 @@ const ko: Dictionary = {
       Ribs: '갈비',
       Calf: '종아리',
       Shin: '정강이',
+      Hand: '손',
+      Chest: '가슴',
     },
     workStyles: {
       Blackwork: '블랙워크',
@@ -81,6 +83,11 @@ const ko: Dictionary = {
       engel: '천사',
       memories: '기억',
       family: '가족 家庭',
+      chevrons: '셰브런',
+      recluse: '은둔거미',
+      branches: '가지',
+      summit: '정상',
+      script: 'Dayê',
     },
   },
 };

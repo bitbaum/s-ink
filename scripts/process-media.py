@@ -111,6 +111,12 @@ def export(work: dict) -> str:
     if not src.exists():
         return f"MISS {work['id']}: {src.name}"
     im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    # Some pieces were photographed by the client looking down at their own body,
+    # so lettering lands upside down. EXIF cannot know that — it records how the
+    # phone was held, not which way up the subject was. `rotate` is the manual
+    # correction, and `focus` is read in the rotated frame.
+    if work.get("rotate"):
+        im = im.rotate(-work["rotate"], expand=True)
     im = crop_to(im, ASPECT[work.get("shape", "portrait")],
                  work.get("focus", [0.5, 0.5]), work.get("zoom", 1.0))
 
