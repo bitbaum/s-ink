@@ -1,0 +1,136 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: 3.5rem;
+  border-bottom: 1px solid transparent;
+  transition:
+    background var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out),
+    backdrop-filter var(--dur-mid) var(--ease-out);
+}
+
+.nav[data-stuck='true'] {
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(0.6);
+  border-bottom-color: var(--color-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-height: 44px;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.brandName {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.brandRole {
+  color: var(--color-text-muted);
+}
+
+/* Live-status dot — the small signal that this is a working studio, not a
+   brochure. Pulses on the accent so it reads even at 6px. */
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  align-self: center;
+  flex: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dot {
+    animation: pulse 2.4s var(--ease-out) infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent);
+  }
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 0 5px transparent;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 2.4vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.7rem;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.link:hover,
+.link[data-active='true'] {
+  color: var(--color-text);
+}
+
+.link:hover::after,
+.link[data-active='true']::after {
+  transform: scaleX(1);
+}
+
+/* The one outbound link in the bar; tinted so it reads as leaving the site. */
+.external {
+  color: var(--color-accent);
+}
+
+/* Below ~640px the four section links plus Instagram will not fit beside the
+   brand. Drop the role and the outbound link rather than introduce a burger —
+   the page is one screen of scrolling, a menu would be ceremony. */
+@media (max-width: 40rem) {
+  .brandRole,
+  .external {
+    display: none;
+  }
+
+  .links {
+    gap: 1rem;
+  }
+}

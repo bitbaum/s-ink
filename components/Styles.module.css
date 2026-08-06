@@ -1,0 +1,63 @@
+.section {
+  padding-block: var(--section-gap);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding-block: clamp(1.25rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color var(--dur-mid) var(--ease-out);
+}
+
+.row:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.n {
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+/* Slides toward the note on hover — the row acknowledges the pointer without
+   needing a colour change that would fight the accent rule underneath it. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .row:hover .title {
+    transform: translateX(0.75rem);
+  }
+}
+
+.note {
+  margin: 0;
+  font-size: var(--text-lead);
+  color: var(--color-text-muted);
+  letter-spacing: -0.015em;
+}
+
+@media (max-width: 48rem) {
+  .row {
+    grid-template-columns: 2.5rem 1fr;
+  }
+
+  .note {
+    grid-column: 2;
+  }
+}

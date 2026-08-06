@@ -1,0 +1,184 @@
+/*
+ * SSOT for every design token on this site.
+ *
+ * Nothing outside this block may hardcode a colour, radius, duration or type
+ * scale — components reference these variables only. Retheming the whole site
+ * (or flipping it to a light mode) is an edit to this file and nothing else.
+ */
+
+:root {
+  /* ---- Tier 1: primitives (raw values — never referenced by components) ---- */
+  --primitive-void: #050507;
+  --primitive-pitch: #0a0b0e;
+  --primitive-concrete: #101116;
+  --primitive-steel: #1c1e25;
+  --primitive-graphite: #2a2d36;
+  --primitive-ash: #8f95a3;
+  --primitive-bone: #e9eaee;
+  --primitive-strobe: #ff4a17;
+  --primitive-ice: #7fdfff;
+
+  /* ---- Tier 2: semantic tokens (what things MEAN — always use these) ---- */
+  --color-bg: var(--primitive-void);
+  --color-bg-raised: var(--primitive-pitch);
+  --color-surface: var(--primitive-concrete);
+  --color-border: var(--primitive-steel);
+  --color-border-strong: var(--primitive-graphite);
+  --color-text: var(--primitive-bone);
+  --color-text-muted: var(--primitive-ash);
+  --color-accent: var(--primitive-strobe);
+  --color-accent-cool: var(--primitive-ice);
+  --color-on-accent: var(--primitive-void);
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Fluid type scale — clamp() so nothing needs a breakpoint to stay readable */
+  /* Sized for the two-line wordmark "S." / "INK" — three characters at most per
+     line, so it can run far larger than a full name would allow. */
+  --text-hero: clamp(4.5rem, 26vw, 21rem);
+  --text-section: clamp(2rem, 6vw, 4.5rem);
+  --text-lead: clamp(1.05rem, 2.2vw, 1.5rem);
+  --text-micro: 0.6875rem;
+
+  --tracking-hero: -0.045em;
+  --tracking-micro: 0.22em;
+
+  /* Space / geometry. Sharp corners throughout — this is a machined, technical
+     look; a rounded corner anywhere reads as a consumer app and breaks it. */
+  --gutter: clamp(1rem, 4vw, 4rem);
+  --section-gap: clamp(5rem, 12vw, 11rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-mid: 420ms;
+  --dur-slow: 900ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* The fixed nav is 3.5rem tall; anchored sections must not hide beneath it. */
+  scroll-padding-top: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* ---- Shared primitives ---- */
+
+.shell {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* The mono micro-label used for every piece of metadata on the site. */
+.micro {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Scroll reveal. Elements are visible by default so a failed observer (or no JS
+   at all) never leaves the page blank.
+ *
+ * The hidden state must NOT use clip-path. Chromium computes intersection
+ * against the target's own clip, so an element clipped to zero height never
+ * reports as intersecting — it hides itself and can then never be revealed.
+ * opacity and transform are paint-only and leave the observed box intact. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    transition:
+      opacity var(--dur-slow) var(--ease-out),
+      transform var(--dur-slow) var(--ease-out);
+    /* Set per-item by the caller to stagger a row or grid. */
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js .reveal[data-visible='true'] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Visible to assistive tech only. Used where a decorative rendering (the hero's
+   scrambling glyphs) would otherwise be the only text in the DOM. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  left: 0;
+}

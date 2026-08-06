@@ -1,0 +1,204 @@
+.section {
+  border-top: 1px solid var(--color-border);
+  background:
+    radial-gradient(
+      90% 70% at 12% 0%,
+      color-mix(in srgb, var(--color-accent) 9%, transparent),
+      transparent 60%
+    ),
+    var(--color-bg);
+  padding-block: var(--section-gap);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: center;
+}
+
+.tag {
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0.9rem 0 0;
+  font-size: clamp(2.4rem, 7.5vw, 6rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-text);
+  paint-order: stroke fill;
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .outline {
+    color: var(--color-text-muted);
+  }
+}
+
+.sub {
+  margin: clamp(1rem, 2.5vw, 1.75rem) 0 0;
+  font-size: var(--text-lead);
+  color: var(--color-text-muted);
+  letter-spacing: -0.015em;
+}
+
+.side {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* What to put in the first message. Three words, numbered — the same spec-sheet
+   grammar as the Studio section rather than a sentence asking politely. */
+.brief {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.briefHead {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-accent);
+}
+
+.briefItem {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: clamp(0.7rem, 1.8vw, 1.1rem);
+  border-bottom: 1px solid var(--color-border);
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+/* Stands in for the link cards while no handles are configured, so the column
+   still has weight instead of collapsing into white space. */
+.wordmark {
+  margin: 0;
+  font-size: clamp(3rem, 11vw, 8rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border-strong);
+  paint-order: stroke fill;
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .wordmark {
+    color: var(--color-border-strong);
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 0.35rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-mid) var(--ease-out),
+    background var(--dur-mid) var(--ease-out);
+}
+
+/* Accent wash sweeps in from the left on hover rather than a flat colour
+   change — same gesture as the reveal wipes elsewhere on the page. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-accent) 12%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-mid) var(--ease-out);
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.card:hover::before,
+.card:focus-visible::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+}
+
+.n {
+  color: var(--color-accent);
+  align-self: start;
+}
+
+.label {
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.handle {
+  grid-column: 2;
+}
+
+.note {
+  grid-column: 2;
+  padding-top: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.arrow {
+  grid-column: 3;
+  grid-row: 1 / -1;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  transition:
+    transform var(--dur-mid) var(--ease-out),
+    color var(--dur-mid) var(--ease-out);
+}
+
+.card:hover .arrow,
+.card:focus-visible .arrow {
+  transform: translateX(0.4rem);
+  color: var(--color-accent);
+}
+
+@media (max-width: 60rem) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}

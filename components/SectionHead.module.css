@@ -1,0 +1,30 @@
+.head {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.index {
+  color: var(--color-accent);
+  flex: none;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-section);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
