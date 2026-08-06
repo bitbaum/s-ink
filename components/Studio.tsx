@@ -1,5 +1,6 @@
 import { SectionHead } from '@/components/SectionHead';
-import { SITE, STUDIO } from '@/lib/site';
+import type { Dictionary } from '@/lib/i18n';
+import { SITE } from '@/lib/site';
 import type { Work } from '@/lib/works';
 import styles from './Studio.module.css';
 
@@ -10,14 +11,18 @@ import styles from './Studio.module.css';
  * actually needs before messaging him is six lines long, and writing it as
  * prose would only pad it out.
  */
-export function Studio({ plate }: { plate?: Work }) {
+export function Studio({ t, plate }: { t: Dictionary; plate?: Work }) {
   return (
     <section id="studio" className={`shell ${styles.section}`}>
-      <SectionHead index="03 / Studio" title="Details" note={SITE.name} />
+      <SectionHead
+        index={t.sections.studio.index}
+        title={t.sections.studio.title}
+        note={SITE.name}
+      />
 
       <div className={styles.layout}>
         <dl className={`reveal ${styles.spec}`}>
-          {STUDIO.map((row) => (
+          {t.studio.map((row) => (
             <div className={styles.row} key={row.k}>
               <dt className={`micro ${styles.key}`}>{row.k}</dt>
               <dd className={styles.value}>{row.v}</dd>

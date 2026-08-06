@@ -1,22 +1,23 @@
 import { ScrambleText } from '@/components/ScrambleText';
+import type { Dictionary } from '@/lib/i18n';
 import { SITE } from '@/lib/site';
+import { PORTRAIT_SRC } from '@/lib/works';
 import styles from './Hero.module.css';
 
 /**
- * First screen: the wordmark, at the largest size the viewport allows, over the
- * strongest piece in the portfolio.
+ * First screen: the wordmark over Sami at the machine.
  *
  * The corner blocks are deliberately instrument-panel — a count, a status, the
  * artist. They fill the frame with information rather than with a paragraph,
  * which is the brief: he is laconic, so the page states facts.
  */
-export function Hero({ pieceCount }: { pieceCount: number }) {
+export function Hero({ t, pieceCount }: { t: Dictionary; pieceCount: number }) {
   return (
     <section id="top" className={styles.hero}>
       <div className={styles.backdrop} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-processed
             fixed-size WebP; the optimiser would only re-encode an optimal asset. */}
-        <img src="/work/owl.webp" alt="" width={1500} height={937} fetchPriority="high" />
+        <img src={PORTRAIT_SRC} alt="" width={1500} height={938} fetchPriority="high" />
       </div>
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.vignette} aria-hidden="true" />
@@ -24,7 +25,7 @@ export function Hero({ pieceCount }: { pieceCount: number }) {
       <div className={`shell ${styles.inner}`}>
         <p className={`micro ${styles.eyebrow}`}>
           <span className={styles.rule} aria-hidden="true" />
-          {SITE.tagline}
+          {t.tagline}
         </p>
 
         <h1 className={styles.name}>
@@ -40,13 +41,13 @@ export function Hero({ pieceCount }: { pieceCount: number }) {
       <div className={styles.corners} aria-hidden="true">
         <span className={`micro ${styles.tl}`}>{SITE.artist}</span>
         <span className={`micro ${styles.tr}`}>
-          {String(pieceCount).padStart(2, '0')} pieces
+          {String(pieceCount).padStart(2, '0')} {t.hero.pieces}
         </span>
-        <span className={`micro ${styles.bl}`}>By appointment / No walk-ins</span>
+        <span className={`micro ${styles.bl}`}>{t.hero.appointment}</span>
       </div>
 
       <a href="#work" className={`micro ${styles.scroll}`}>
-        Scroll
+        {t.hero.scroll}
         <span className={styles.scrollLine} aria-hidden="true" />
       </a>
     </section>

@@ -8,8 +8,9 @@
   isolation: isolate;
 }
 
-/* The owl, bled off the right edge and pushed almost to black. It is texture
-   and depth here, not a photograph to be read — the gallery shows it properly. */
+/* Sami at the machine. Unlike the tattoo close-ups this is meant to be READ, not
+   used as texture — so it sits at near-full strength and the scrim below does
+   the work of keeping the wordmark legible instead of dimming the whole frame. */
 .backdrop {
   position: absolute;
   inset: 0;
@@ -20,9 +21,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 62% 38%;
-  opacity: 0.38;
-  filter: contrast(1.25) brightness(0.62);
+  /* Bias right: his face and the ring light live in the right two-thirds, and
+     the wordmark sits bottom-left. */
+  object-position: 64% 32%;
+  /* Full strength and lifted: the source frame is a dark studio at night, so
+     anything less than this and his face disappears into the scrim below. */
+  opacity: 1;
+  filter: contrast(1.03) brightness(1.5);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -62,14 +67,17 @@
   mask-image: linear-gradient(to bottom, #000 0%, transparent 78%);
 }
 
-/* Anchors the type: the frame darkens toward the lower-left where the name is. */
+/* The scrim. Now that the portrait runs at near-full strength this is the only
+   thing keeping the wordmark readable, so it is heavier on the left (where the
+   type sits) and barely touches the right (where his face and the light are). */
 .vignette {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, var(--color-bg) 2%, transparent 55%),
-    radial-gradient(120% 90% at 15% 100%, var(--color-bg) 10%, transparent 65%);
+    linear-gradient(to right, rgb(5 5 7 / 0.94) 0%, rgb(5 5 7 / 0.34) 30%, transparent 56%),
+    linear-gradient(to top, var(--color-bg) 1%, rgb(5 5 7 / 0.4) 16%, transparent 48%),
+    radial-gradient(95% 70% at 8% 96%, rgb(5 5 7 / 0.9) 8%, transparent 62%);
 }
 
 .inner {

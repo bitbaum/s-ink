@@ -1,0 +1,93 @@
+import type { Dictionary } from '../types';
+
+const ja: Dictionary = {
+  localeLabel: '日本語',
+  role: '彫師',
+  tagline: 'ファインライン · ブラックワーク',
+  nav: { work: '作品', styles: 'スタイル', studio: 'スタジオ', book: '予約' },
+  hero: {
+    pieces: '点',
+    appointment: '完全予約制 / 当日受付なし',
+    scroll: 'スクロール',
+  },
+  sections: {
+    work: { index: '01 / 作品', title: 'セレクション' },
+    styles: { index: '02 / スタイル', title: '彫れるもの' },
+    studio: { index: '03 / スタジオ', title: '詳細' },
+    book: { index: '04 / 予約' },
+  },
+  ticker: [
+    'ブラックワーク',
+    'ファインライン',
+    'レタリング',
+    'オーナメント',
+    'カバーアップ',
+    'フリーハンド',
+  ],
+  styles: [
+    { title: 'ブラックワーク', note: 'ベタ塗り。硬いエッジ。' },
+    { title: 'ファインライン', note: '一本針。塗りなし。' },
+    { title: 'レタリング', note: '筆記体、文字、名前。' },
+    { title: 'オーナメント', note: '受け継いだ幾何。' },
+  ],
+  studio: [
+    { k: '彫師', v: 'Sami Tutar' },
+    { k: '予約', v: '完全予約制' },
+    { k: '当日受付', v: 'なし' },
+    { k: 'スタイル', v: 'ブラックワーク · ファインライン' },
+    { k: '対応言語', v: 'DE-CH · FR · EN · TR · ZH · JA · KO' },
+    { k: '連絡', v: 'メール' },
+  ],
+  reel: { tag: 'モーション', lead: '定着後の作品、スタジオにて。' },
+  book: {
+    titleA: 'メールで相談',
+    titleB: 'デザインを',
+    sub: '当日受付なし。完全予約制。',
+    send: '送るもの',
+    brief: ['参考画像', '部位', 'おおよそのサイズ'],
+  },
+  contact: {
+    cta: 'Sami にメール',
+    copy: 'アドレスをコピー',
+    copied: 'コピーしました',
+    mailSubject: 'タトゥーのご相談 — S.Ink',
+    mailBody: 'Sami さん\n\n参考画像：\n部位：\nおおよそのサイズ：\n希望日程：\n\nよろしくお願いします',
+  },
+  footer: { backToTop: 'トップへ' },
+  labels: {
+    placements: {
+      'Upper back': '背中上部',
+      Shoulder: '肩',
+      Forearm: '前腕',
+      Ribs: '肋骨',
+      Calf: 'ふくらはぎ',
+      Shin: 'すね',
+    },
+    workStyles: {
+      Blackwork: 'ブラックワーク',
+      'Fine line': 'ファインライン',
+      Lettering: 'レタリング',
+      Ornamental: 'オーナメント',
+    },
+    workTitles: {
+      owl: 'フクロウ',
+      dobermann: 'ドーベルマン',
+      faravahar: 'ファラヴァハル',
+      anatomy: '心臓',
+      scorpion: 'サソリ',
+      stars: '星',
+      bloom: '花',
+      widow: 'クモ',
+      thorn: '茨',
+      hourglass: '砂時計',
+      father: '父',
+      ridge: '稜線',
+      grin: '笑み',
+      engel: '天使',
+      memories: '記憶',
+      family: '家族 家庭',
+    },
+  },
+};
+
+export default ja;
