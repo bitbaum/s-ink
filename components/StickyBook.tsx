@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import { buildMailto } from '@/lib/contact';
 import type { Dictionary } from '@/lib/i18n';
 import styles from './StickyBook.module.css';
 
@@ -42,7 +41,7 @@ export function StickyBook({ t }: { t: Dictionary }) {
 
   return (
     <div className={styles.bar} data-shown={shown} aria-hidden={!shown}>
-      <a className={styles.button} href={buildMailto(t)} tabIndex={shown ? 0 : -1}>
+      <a className={styles.button} href="#book" tabIndex={shown ? 0 : -1}>
         {t.hero.cta}
         <span className={styles.arrow} aria-hidden="true">
           →

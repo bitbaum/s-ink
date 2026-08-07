@@ -1,5 +1,4 @@
 import { ScrambleText } from '@/components/ScrambleText';
-import { buildMailto } from '@/lib/contact';
 import type { Dictionary } from '@/lib/i18n';
 import { SITE } from '@/lib/site';
 import { PORTRAIT_SRC } from '@/lib/works';
@@ -39,8 +38,10 @@ export function Hero({ t, pieceCount }: { t: Dictionary; pieceCount: number }) {
         </h1>
 
         {/* The action, on the first screen. Everything below it is evidence for
-            the decision this button asks the visitor to make. */}
-        <a className={styles.cta} href={buildMailto(t)}>
+            the decision this button asks the visitor to make. It scrolls to the
+            form rather than opening a mail client: nothing about deciding to
+            book should require leaving the page. */}
+        <a className={styles.cta} href="#book">
           {t.hero.cta}
           <span className={styles.ctaArrow} aria-hidden="true">
             →

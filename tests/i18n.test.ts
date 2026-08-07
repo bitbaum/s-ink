@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import manifest from '@/content/works.json';
+import { ENQUIRY_FIELDS } from '@/lib/enquiry';
 import { getDictionary, LOCALES } from '@/lib/i18n';
 import en from '@/lib/i18n/dictionaries/en';
 
@@ -17,8 +18,19 @@ describe('dictionaries', () => {
   it.each(dicts)('%s has the same array lengths as English', (_locale, t) => {
     expect(t.styles).toHaveLength(en.styles.length);
     expect(t.studio).toHaveLength(en.studio.length);
-    expect(t.book.brief).toHaveLength(en.book.brief.length);
     expect(t.ticker.length).toBeGreaterThan(0);
+  });
+
+  it.each(dicts)('%s labels every field the enquiry form renders', (_locale, t) => {
+    // The form renders straight from ENQUIRY_FIELDS, so a field added there
+    // without a label would render a nameless box rather than fail to compile
+    // — `Record<EnquiryFieldId, string>` catches a missing key, not an empty one.
+    for (const field of ENQUIRY_FIELDS) {
+      expect(t.booking.fields[field.id], `missing label: ${field.id}`).toBeTruthy();
+    }
+    for (const code of ['required', 'email', 'tooLong', 'fileRejected', 'rateLimited', 'failed'] as const) {
+      expect(t.booking.errors[code], `missing error: ${code}`).toBeTruthy();
+    }
   });
 
   it.each(dicts)('%s translates every placement used in the manifest', (_locale, t) => {
