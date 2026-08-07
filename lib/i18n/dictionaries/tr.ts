@@ -34,6 +34,7 @@ const tr: Dictionary = {
     { k: 'Ödeme', v: 'Nakit · Bitcoin' },
   ],
   reel: { tag: 'Hareket', lead: 'İyileşmiş işler, stüdyoda.' },
+  lightbox: { close: 'Kapat', prev: 'Önceki çalışma', next: 'Sonraki çalışma' },
   book: {
     titleA: 'Fikrin için',
     titleB: 'yaz bana',
@@ -57,6 +58,8 @@ const tr: Dictionary = {
       Ribs: 'Kaburga',
       Calf: 'Baldır',
       Shin: 'İncik',
+      Hand: 'El',
+      Chest: 'Göğüs',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -81,6 +84,11 @@ const tr: Dictionary = {
       engel: 'Melek',
       memories: 'Anılar',
       family: 'Aile 家庭',
+      chevrons: 'Şevronlar',
+      recluse: 'Münzevi',
+      branches: 'Dallar',
+      summit: 'Zirve',
+      script: 'Dayê',
     },
   },
 };

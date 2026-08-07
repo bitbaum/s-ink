@@ -1,0 +1,44 @@
+.page {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: start;
+  gap: 1.5rem;
+  padding: var(--gutter);
+}
+
+.code {
+  font-family: var(--font-display);
+  /* Section scale, not hero scale: the number is the label on this page, and at
+     hero size it is tall enough to push the message and the way out below the
+     fold — which on a 404 removes the only two things that matter. */
+  font-size: var(--text-section);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: var(--tracking-hero);
+  /* Outlined, like the second line of the wordmark: the number is a label here,
+     not the thing worth looking at. */
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border-strong);
+}
+
+.note {
+  color: var(--color-text-muted);
+  max-width: 32ch;
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.home:hover {
+  transform: translateX(3px);
+}

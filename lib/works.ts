@@ -33,6 +33,15 @@ export interface Reel {
 
 export const PORTRAIT_SRC = `/work/${manifest.portrait.id}.webp`;
 
+/**
+ * The link-preview card, written by `process-media.py --only=og`.
+ *
+ * Kept beside the other media paths rather than inlined in the metadata, so the
+ * pipeline's output and the tag that points at it stay one edit apart. It is a
+ * JPEG for a reason — see export_og in the pipeline.
+ */
+export const OG_IMAGE = '/work/og.jpg';
+
 export function getWorks(t: Dictionary): Work[] {
   return manifest.works.map((w) => {
     // Fall back to the manifest's English if a dictionary is missing an entry —

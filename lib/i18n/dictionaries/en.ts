@@ -34,6 +34,7 @@ const en: Dictionary = {
     { k: 'Payment', v: 'Cash · Bitcoin' },
   ],
   reel: { tag: 'Motion', lead: 'Healed work, in the room.' },
+  lightbox: { close: 'Close', prev: 'Previous piece', next: 'Next piece' },
   book: {
     titleA: 'Email to discuss',
     titleB: 'your piece',
@@ -57,6 +58,8 @@ const en: Dictionary = {
       Ribs: 'Ribs',
       Calf: 'Calf',
       Shin: 'Shin',
+      Hand: 'Hand',
+      Chest: 'Chest',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -81,6 +84,11 @@ const en: Dictionary = {
       engel: 'Engel',
       memories: 'Memories',
       family: 'Family 家庭',
+      chevrons: 'Chevrons',
+      recluse: 'Recluse',
+      branches: 'Branches',
+      summit: 'Summit',
+      script: 'Dayê',
     },
   },
 };

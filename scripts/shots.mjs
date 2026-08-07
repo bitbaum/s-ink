@@ -34,10 +34,53 @@ const SHOTS = [
 const browser = await chromium.launch();
 for (const s of SHOTS) {
   const page = await browser.newPage({ viewport: { width: s.w, height: s.h } });
+  // The page scrolls smoothly, which is right for a reader and wrong for a
+  // camera: scrollTo() then returns before the page has gone anywhere, so the
+  // shutter fires mid-glide and catches half-revealed tiles.
   await page.goto(base, { waitUntil: 'networkidle' });
-  // Reveal animations are one-shot on scroll; jump, then let them finish.
-  await page.evaluate((y) => window.scrollTo(0, y), s.y);
-  await page.waitForTimeout(1400);
+  await page.addStyleTag({ content: 'html { scroll-behavior: auto !important; }' });
+
+  // Walk down to the target rather than jumping. Jumping straight to `y` leaves
+  // every lazy image above it un-requested, so the tiles photograph BLANK on a
+  // page that is perfectly fine in a real browser — a false bug that has been
+  // chased more than once. Stepping also lets the one-shot reveal animations
+  // fire, which a jump past them skips entirely.
+  await page.evaluate(async (y) => {
+    for (let at = 0; at < y; at += 500) {
+      window.scrollTo(0, at);
+      await new Promise((r) => setTimeout(r, 60));
+    }
+    window.scrollTo(0, y);
+  }, s.y);
+
+  // Wait on the page's own state rather than on a guessed delay: every image in
+  // view decoded, and every reveal finished rather than merely started.
+  await page.waitForFunction(() => {
+    const imagesReady = [...document.images].every((i) => !i.complete || i.naturalWidth > 0);
+    const revealsSettled = [...document.querySelectorAll('.reveal')].every((el) => {
+      const r = el.getBoundingClientRect();
+      // Only demand a settled opacity from elements that are actually due to
+      // reveal — same trigger line the observer uses. An element peeking in at
+      // the very bottom edge is correctly still hidden, and waiting on it hangs.
+      const due = r.bottom > 0 && r.top < window.innerHeight * 0.88;
+      return !due || getComputedStyle(el).opacity === '1';
+    });
+    return imagesReady && revealsSettled;
+  }, { timeout: 15000 });
+
+  // Finally wait for text to stop moving. The wordmark scrambles itself on load,
+  // so a shot taken the moment the images are ready catches it mid-flight and
+  // photographs "5Z / AAA" where the brand should be. Watching the text rather
+  // than naming the component keeps this honest for anything animated later.
+  await page.waitForFunction(() => {
+    const now = document.body.innerText;
+    const w = /** @type {any} */ (window);
+    const stable = w.__prevText === now ? (w.__stableFor ?? 0) + 1 : 0;
+    w.__prevText = now;
+    w.__stableFor = stable;
+    return stable >= 3;
+  }, { timeout: 15000, polling: 150 });
+
   await page.screenshot({ path: `${out}/${s.name}.jpg`, quality: 88, type: 'jpeg' });
   await page.close();
   console.log(s.name);

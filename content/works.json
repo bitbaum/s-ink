@@ -67,6 +67,45 @@
       "zoom": 1.4
     },
     {
+      "id": "widow",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (16).jpeg",
+      "title": "Widow",
+      "placement": "Forearm",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.45,
+        0.42
+      ],
+      "zoom": 1.5
+    },
+    {
+      "id": "memories",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (11).jpeg",
+      "title": "Memories",
+      "placement": "Ribs",
+      "style": "Lettering",
+      "shape": "portrait",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "zoom": 1.4
+    },
+    {
+      "id": "branches",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (10).jpeg",
+      "title": "Branches",
+      "placement": "Chest",
+      "style": "Fine line",
+      "shape": "wide",
+      "focus": [
+        0.56,
+        0.5
+      ],
+      "zoom": 1.45
+    },
+    {
       "id": "scorpion",
       "source": "WhatsApp Image 2026-08-06 at 12.55.51 (4).jpeg",
       "title": "Scorpion",
@@ -93,32 +132,6 @@
       "zoom": 1.2
     },
     {
-      "id": "bloom",
-      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (13).jpeg",
-      "title": "Bloom",
-      "placement": "Shin",
-      "style": "Blackwork",
-      "shape": "portrait",
-      "focus": [
-        0.57,
-        0.495
-      ],
-      "zoom": 1.85
-    },
-    {
-      "id": "widow",
-      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (16).jpeg",
-      "title": "Widow",
-      "placement": "Forearm",
-      "style": "Blackwork",
-      "shape": "portrait",
-      "focus": [
-        0.45,
-        0.42
-      ],
-      "zoom": 1.5
-    },
-    {
       "id": "thorn",
       "source": "WhatsApp Image 2026-08-06 at 12.55.50.jpeg",
       "title": "Thorn",
@@ -130,6 +143,46 @@
         0.5
       ],
       "zoom": 1.35
+    },
+    {
+      "id": "chevrons",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50 (2).jpeg",
+      "title": "Chevrons",
+      "placement": "Forearm",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.47,
+        0.36
+      ],
+      "zoom": 1.5
+    },
+    {
+      "id": "script",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (3).jpeg",
+      "title": "Dayê",
+      "placement": "Chest",
+      "style": "Lettering",
+      "shape": "wide",
+      "rotate": 180,
+      "focus": [
+        0.49,
+        0.475
+      ],
+      "zoom": 1.6
+    },
+    {
+      "id": "bloom",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (13).jpeg",
+      "title": "Bloom",
+      "placement": "Shin",
+      "style": "Blackwork",
+      "shape": "portrait",
+      "focus": [
+        0.57,
+        0.495
+      ],
+      "zoom": 1.85
     },
     {
       "id": "hourglass",
@@ -145,17 +198,43 @@
       "zoom": 1.15
     },
     {
-      "id": "father",
-      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (18).jpeg",
-      "title": "Father",
-      "placement": "Forearm",
-      "style": "Fine line",
+      "id": "recluse",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50 (4).jpeg",
+      "title": "Recluse",
+      "placement": "Hand",
+      "style": "Blackwork",
       "shape": "portrait",
       "focus": [
-        0.42,
-        0.48
+        0.57,
+        0.52
       ],
-      "zoom": 1.45
+      "zoom": 1.8
+    },
+    {
+      "id": "family",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (5).jpeg",
+      "title": "Family 家庭",
+      "placement": "Calf",
+      "style": "Lettering",
+      "shape": "portrait",
+      "focus": [
+        0.615,
+        0.455
+      ],
+      "zoom": 2.0
+    },
+    {
+      "id": "summit",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.50 (3).jpeg",
+      "title": "Summit",
+      "placement": "Shoulder",
+      "style": "Fine line",
+      "shape": "wide",
+      "focus": [
+        0.5,
+        0.63
+      ],
+      "zoom": 1.2
     },
     {
       "id": "ridge",
@@ -169,6 +248,19 @@
         0.32
       ],
       "zoom": 2.2
+    },
+    {
+      "id": "father",
+      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (18).jpeg",
+      "title": "Father",
+      "placement": "Forearm",
+      "style": "Fine line",
+      "shape": "portrait",
+      "focus": [
+        0.42,
+        0.48
+      ],
+      "zoom": 1.45
     },
     {
       "id": "grin",
@@ -195,32 +287,6 @@
         0.36
       ],
       "zoom": 1.35
-    },
-    {
-      "id": "memories",
-      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (11).jpeg",
-      "title": "Memories",
-      "placement": "Ribs",
-      "style": "Lettering",
-      "shape": "portrait",
-      "focus": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.4
-    },
-    {
-      "id": "family",
-      "source": "WhatsApp Image 2026-08-06 at 12.55.51 (5).jpeg",
-      "title": "Family 家庭",
-      "placement": "Calf",
-      "style": "Lettering",
-      "shape": "portrait",
-      "focus": [
-        0.615,
-        0.455
-      ],
-      "zoom": 2.0
     }
   ],
   "reels": [

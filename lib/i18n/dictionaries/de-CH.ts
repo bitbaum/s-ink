@@ -35,6 +35,7 @@ const deCH: Dictionary = {
     { k: 'Zahlung', v: 'Bar · Bitcoin' },
   ],
   reel: { tag: 'Bewegung', lead: 'Verheilte Arbeiten, im Studio.' },
+  lightbox: { close: 'Schliessen', prev: 'Vorheriges Stück', next: 'Nächstes Stück' },
   book: {
     titleA: 'Schreib mir für',
     titleB: 'dein Motiv',
@@ -58,6 +59,8 @@ const deCH: Dictionary = {
       Ribs: 'Rippen',
       Calf: 'Wade',
       Shin: 'Schienbein',
+      Hand: 'Hand',
+      Chest: 'Brust',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -82,6 +85,11 @@ const deCH: Dictionary = {
       engel: 'Engel',
       memories: 'Erinnerungen',
       family: 'Familie 家庭',
+      chevrons: 'Chevrons',
+      recluse: 'Einsiedler',
+      branches: 'Äste',
+      summit: 'Gipfel',
+      script: 'Dayê',
     },
   },
 };

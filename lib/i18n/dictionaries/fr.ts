@@ -34,6 +34,7 @@ const fr: Dictionary = {
     { k: 'Paiement', v: 'Espèces · Bitcoin' },
   ],
   reel: { tag: 'Mouvement', lead: 'Travaux cicatrisés, en studio.' },
+  lightbox: { close: 'Fermer', prev: 'Pièce précédente', next: 'Pièce suivante' },
   book: {
     titleA: 'Écris-moi pour',
     titleB: 'ton projet',
@@ -57,6 +58,8 @@ const fr: Dictionary = {
       Ribs: 'Côtes',
       Calf: 'Mollet',
       Shin: 'Tibia',
+      Hand: 'Main',
+      Chest: 'Torse',
     },
     workStyles: {
       Blackwork: 'Blackwork',
@@ -81,6 +84,11 @@ const fr: Dictionary = {
       engel: 'Ange',
       memories: 'Souvenirs',
       family: 'Famille 家庭',
+      chevrons: 'Chevrons',
+      recluse: 'Recluse',
+      branches: 'Branches',
+      summit: 'Sommet',
+      script: 'Dayê',
     },
   },
 };

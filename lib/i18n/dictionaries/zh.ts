@@ -34,6 +34,7 @@ const zh: Dictionary = {
     { k: '付款', v: '现金 · 比特币' },
   ],
   reel: { tag: '动态', lead: '愈合后的作品，在工作室。' },
+  lightbox: { close: '关闭', prev: '上一件', next: '下一件' },
   book: {
     titleA: '写邮件聊聊',
     titleB: '你的图案',
@@ -57,6 +58,8 @@ const zh: Dictionary = {
       Ribs: '肋侧',
       Calf: '小腿',
       Shin: '胫前',
+      Hand: '手',
+      Chest: '胸口',
     },
     workStyles: {
       Blackwork: '纯黑',
@@ -81,6 +84,11 @@ const zh: Dictionary = {
       engel: '天使',
       memories: '回忆',
       family: '家庭',
+      chevrons: '人字纹',
+      recluse: '隐士蛛',
+      branches: '枝',
+      summit: '山顶',
+      script: 'Dayê',
     },
   },
 };

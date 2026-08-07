@@ -6,6 +6,7 @@ import { Atmosphere } from '@/components/Atmosphere';
 import { RevealObserver } from '@/components/RevealObserver';
 import { getDictionary, HTML_LANG, isLocale, LOCALES, type Locale } from '@/lib/i18n';
 import { SITE } from '@/lib/site';
+import { OG_IMAGE } from '@/lib/works';
 import '../globals.css';
 
 const display = Space_Grotesk({
@@ -26,6 +27,17 @@ const mono = JetBrains_Mono({
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
+
+/**
+ * Only the seven generated locales are routes at all.
+ *
+ * Without this, `[locale]` matches literally anything, so `/nonsense` was a
+ * *matched* route that then threw notFound() from inside this layout — which is
+ * why it fell through to Next's own unstyled error page instead of the site's
+ * 404. Closing the route is what makes an unknown URL genuinely unmatched, and
+ * therefore something app/global-not-found.tsx can answer.
+ */
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -53,7 +65,11 @@ export async function generateMetadata({
       description,
       url: `${SITE.url}/${locale}`,
       siteName: SITE.name,
-      images: [{ url: '/work/sami.webp', width: 1500, height: 938 }],
+      // JPEG, not the WebP the site itself uses. A link preview is rendered by
+      // whatever app the link was pasted into rather than by a browser, and
+      // WhatsApp and iMessage show nothing at all for a WebP — so the preview
+      // that silently failed was the one on the link he sends clients himself.
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, type: 'image/jpeg', alt: SITE.artist }],
       type: 'website',
       locale: HTML_LANG[locale],
     },

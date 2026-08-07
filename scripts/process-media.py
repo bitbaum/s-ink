@@ -33,6 +33,8 @@ SPEC = json.loads((ROOT / "content" / "works.json").read_text())
 FULL = 1500
 THUMB = 780
 ASPECT = {"portrait": 4 / 5, "wide": 16 / 10, "square": 1.0}
+# Fixed by the link-preview scrapers, not by us — see export_og.
+OG = (1200, 630)
 
 # The grade. Shadows go cold blue-black, highlights stay just off-white; the
 # midpoint is pulled slightly cool so skin never drifts warm/pink.
@@ -111,6 +113,12 @@ def export(work: dict) -> str:
     if not src.exists():
         return f"MISS {work['id']}: {src.name}"
     im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    # Some pieces were photographed by the client looking down at their own body,
+    # so lettering lands upside down. EXIF cannot know that — it records how the
+    # phone was held, not which way up the subject was. `rotate` is the manual
+    # correction, and `focus` is read in the rotated frame.
+    if work.get("rotate"):
+        im = im.rotate(-work["rotate"], expand=True)
     im = crop_to(im, ASPECT[work.get("shape", "portrait")],
                  work.get("focus", [0.5, 0.5]), work.get("zoom", 1.0))
 
@@ -126,6 +134,32 @@ def export(work: dict) -> str:
     t.thumbnail((THUMB, THUMB), Image.LANCZOS)
     t.save(OUT / f"{work['id']}-thumb.webp", "WEBP", quality=82, method=6)
     return f"ok   {work['id']:12} {im.size[0]}x{im.size[1]}"
+
+
+def export_og(work: dict) -> str:
+    """The link-preview card: same portrait, 1200x630, as JPEG.
+
+    JPEG rather than WebP on purpose. The site ships WebP everywhere because it
+    is smaller and every browser reads it, but a link preview is not rendered by
+    a browser — it is rendered by whatever app the link was pasted into, and
+    WhatsApp, iMessage and several others simply show nothing for a WebP. That
+    matters more here than anywhere: WhatsApp is how this artist sends his own
+    work, so the preview that fails is the one on the link he shares himself.
+
+    1200x630 is the size those scrapers crop to; supplying it exactly is what
+    stops them cutting his head off.
+    """
+    src = SRC / work["source"]
+    if not src.exists():
+        return f"MISS og: {src.name}"
+    im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    # Framed a little wider and higher than the hero: the card is half the
+    # height, and the hero's crop puts his face where a preview would clip it.
+    im = crop_to(im, OG[0] / OG[1], work.get("focus", [0.5, 0.5]), 1.0)
+    im = im.resize(OG, Image.LANCZOS)
+    im = grain(vignette(grade(im, "portrait"), 0.34))
+    im.save(OUT / "og.jpg", "JPEG", quality=88, optimize=True, progressive=True)
+    return f"ok   {'og.jpg':12} {OG[0]}x{OG[1]}"
 
 
 def export_reel(reel: dict) -> str:
@@ -184,11 +218,24 @@ def qa_sheet(works):
 
 
 OUT.mkdir(parents=True, exist_ok=True)
+
+# `--only=id[,id]` re-exports a subset. Re-encoding all 23 assets to change one
+# rewrites every file in public/work, so a one-piece recrop lands as a 23-file
+# diff and the change that matters is invisible in review.
+only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--only=")), None)
+want = lambda i: only is None or i in only  # noqa: E731
+
 if SPEC.get("portrait"):
-    print(export(SPEC["portrait"]), flush=True)
+    portrait = SPEC["portrait"]
+    if want(portrait["id"]):
+        print(export(portrait), flush=True)
+    if want("og"):
+        print(export_og(portrait), flush=True)
 for w in SPEC["works"]:
-    print(export(w), flush=True)
+    if want(w["id"]):
+        print(export(w), flush=True)
 for r in SPEC["reels"]:
-    print(export_reel(r), flush=True)
+    if want(r["id"]):
+        print(export_reel(r), flush=True)
 if "--qa" in sys.argv:
     qa_sheet(SPEC["works"])

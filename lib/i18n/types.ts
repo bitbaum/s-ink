@@ -25,6 +25,9 @@ export interface Dictionary {
   /** Six rows, in the same order as STUDIO_ROWS. */
   studio: { k: string; v: string }[];
   reel: { tag: string; lead: string };
+  /** Viewer controls. Reached only by opening a piece, which is why they went
+      untranslated for so long — the rest of the page is read without them. */
+  lightbox: { close: string; prev: string; next: string };
   book: {
     titleA: string;
     titleB: string;

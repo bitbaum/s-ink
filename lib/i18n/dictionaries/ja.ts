@@ -41,6 +41,7 @@ const ja: Dictionary = {
     { k: 'お支払い', v: '現金 · ビットコイン' },
   ],
   reel: { tag: 'モーション', lead: '定着後の作品、スタジオにて。' },
+  lightbox: { close: '閉じる', prev: '前の作品', next: '次の作品' },
   book: {
     titleA: 'メールで相談',
     titleB: 'デザインを',
@@ -64,6 +65,8 @@ const ja: Dictionary = {
       Ribs: '肋骨',
       Calf: 'ふくらはぎ',
       Shin: 'すね',
+      Hand: '手',
+      Chest: '胸',
     },
     workStyles: {
       Blackwork: 'ブラックワーク',
@@ -88,6 +91,11 @@ const ja: Dictionary = {
       engel: '天使',
       memories: '記憶',
       family: '家族 家庭',
+      chevrons: 'シェブロン',
+      recluse: 'イトグモ',
+      branches: '枝',
+      summit: '山頂',
+      script: 'Dayê',
     },
   },
 };
