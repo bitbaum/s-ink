@@ -1,3 +1,5 @@
+import type { EnquiryFieldId } from '@/lib/enquiry';
+
 /**
  * The translation contract.
  *
@@ -32,12 +34,34 @@ export interface Dictionary {
     titleA: string;
     titleB: string;
     sub: string;
-    send: string;
-    brief: string[];
+  };
+  /**
+   * The on-site enquiry form. Field labels are keyed by `EnquiryFieldId`, so
+   * adding a field to lib/enquiry.ts breaks all seven files until translated.
+   */
+  booking: {
+    fields: Record<EnquiryFieldId, string>;
+    /** Shown under the three fields where an example prevents a re-ask. */
+    hints: { idea: string; placement: string; size: string };
+    references: string;
+    referencesHint: string;
+    age: string;
+    submit: string;
+    sending: string;
+    sentTitle: string;
+    sentBody: string;
+    privacy: string;
+    orEmail: string;
+    errors: {
+      required: string;
+      email: string;
+      tooLong: string;
+      fileRejected: string;
+      rateLimited: string;
+      failed: string;
+    };
   };
   contact: {
-    /** Primary button. */
-    cta: string;
     copy: string;
     copied: string;
     /** Pre-filled mail subject and body — see buildMailto in lib/contact.ts. */

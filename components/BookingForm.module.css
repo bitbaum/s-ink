@@ -1,0 +1,213 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  align-content: start;
+}
+
+/* Idea and references get the full width; name/email and placement/size pair
+   up, which is also the order someone thinks in. */
+.field[data-wide='true'] {
+  grid-column: 1 / -1;
+}
+
+.label {
+  color: var(--color-text-muted);
+}
+
+.input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--color-bg-raised);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-accent);
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 6.5rem;
+}
+
+/* Hints are sentences, so they drop the micro treatment the labels use. Set in
+   the same uppercase spacing they compete with the accent error text beside
+   them, and the thing that should catch the eye is the error. */
+.hint,
+.files {
+  color: var(--color-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.78rem;
+}
+
+.files {
+  color: var(--color-text);
+}
+
+/* Errors use the accent rather than a red found nowhere else on the site —
+   there is exactly one attention colour here and inventing a second for
+   failure states is how a palette starts to leak. */
+.error {
+  color: var(--color-accent);
+}
+
+.file {
+  width: 100%;
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  padding: 0.55rem 0;
+}
+
+.file::file-selector-button {
+  font: inherit;
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  margin-right: 0.9rem;
+  padding: 0.55rem 1rem;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.file::file-selector-button:hover {
+  border-color: var(--color-accent);
+}
+
+.age {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  /* 44px minimum touch target, which a bare checkbox is not. */
+  min-height: 2.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.age input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--color-accent);
+  flex: none;
+}
+
+.age[data-invalid='true'] {
+  color: var(--color-accent);
+}
+
+/* Off-screen, not display:none — some bots skip inputs they can tell are
+   hidden, and this one is meant to look fillable. */
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.submit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 3rem;
+  padding: 0.9rem 1.6rem;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.submit:hover:not(:disabled) .arrow {
+  transform: translateX(4px);
+}
+
+.submit:disabled {
+  opacity: 0.62;
+  cursor: progress;
+}
+
+.arrow {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.failure,
+.privacy {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.failure {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+.failureLink {
+  color: inherit;
+}
+
+.privacy {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sent {
+  display: grid;
+  gap: 0.6rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-accent);
+}
+
+.sentTitle {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.sentBody {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 34rem) {
+  .form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

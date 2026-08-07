@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Reel t={t} reels={reels} />
         <Styles t={t} />
         <Studio t={t} plate={plate} />
-        <Book t={t} />
+        <Book t={t} locale={locale} />
       </main>
       <Footer t={t} />
       <StickyBook t={t} />

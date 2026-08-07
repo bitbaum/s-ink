@@ -3,46 +3,10 @@
   gap: 1rem;
 }
 
-/* The one filled control on the site. Everything else is a hairline, so this
-   reads as the single thing the page wants you to do. */
-.primary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: clamp(1.1rem, 2.6vw, 1.6rem) clamp(1.25rem, 3vw, 2rem);
-  min-height: 56px;
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-  transition:
-    filter var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
-}
-
-.primary:hover,
-.primary:focus-visible {
-  filter: brightness(1.12);
-}
-
-.primary:active {
-  transform: translateY(1px);
-}
-
-.primaryLabel {
-  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-}
-
-.arrow {
-  font-size: 1.4rem;
-  transition: transform var(--dur-mid) var(--ease-out);
-}
-
-.primary:hover .arrow,
-.primary:focus-visible .arrow {
-  transform: translateX(0.35rem);
+/* The filled control that used to live here moved into the form's submit
+   button — there is one primary action in this section and it is Send. */
+.orEmail {
+  color: var(--color-text-muted);
 }
 
 .row {

@@ -7,14 +7,14 @@ import type { Dictionary } from '@/lib/i18n';
 import styles from './ContactActions.module.css';
 
 /**
- * The booking control: one big mail button, and the raw address for anyone who
- * would rather type it themselves.
+ * The secondary route out: his address, for people who would rather use their
+ * own mail client than the form above.
  *
- * The button opens a message that is already written — subject and a short
- * checklist body, in the visitor's language — because the gap between "I'll
- * email him later" and a half-finished draft is where most enquiries die. The
- * copy button exists for the case a mailto: is useless: a shared computer, a
- * webmail-only visitor, or a phone with no mail client configured.
+ * It used to be the primary control and carried a large button; the form
+ * replaced that. What is left is deliberately quiet — a labelled address, a
+ * pre-written draft behind it, and a copy button for the case where `mailto:`
+ * does nothing at all (a shared computer, a webmail-only visitor, a phone with
+ * no mail client configured).
  */
 export function ContactActions({ t }: { t: Dictionary }) {
   const [copied, setCopied] = useState(false);
@@ -37,15 +37,9 @@ export function ContactActions({ t }: { t: Dictionary }) {
 
   return (
     <div className={styles.actions}>
-      <a className={styles.primary} href={buildMailto(t)}>
-        <span className={styles.primaryLabel}>{t.contact.cta}</span>
-        <span className={styles.arrow} aria-hidden="true">
-          →
-        </span>
-      </a>
-
       <div className={styles.row}>
-        <a className={`micro ${styles.address}`} href={`mailto:${EMAIL}`}>
+        <span className={`micro ${styles.orEmail}`}>{t.booking.orEmail}</span>
+        <a className={`micro ${styles.address}`} href={buildMailto(t)}>
           {EMAIL}
         </a>
         <button type="button" className={`micro ${styles.copy}`} onClick={copy}>

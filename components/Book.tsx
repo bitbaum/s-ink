@@ -1,17 +1,22 @@
+import { BookingForm } from '@/components/BookingForm';
 import { ContactActions } from '@/components/ContactActions';
-import type { Dictionary } from '@/lib/i18n';
+import type { Dictionary, Locale } from '@/lib/i18n';
 import { LINKS } from '@/lib/site';
 import styles from './Book.module.css';
 
 /**
  * The one thing the site is for.
  *
- * No contact form: he takes work through DMs, so a form would be a slower path
- * to the same inbox and one more thing that can silently fail. Destinations are
- * driven entirely by LINKS — while that is empty the section still stands on
- * its own, stating what to send rather than showing a link that goes nowhere.
+ * The enquiry is taken here rather than handed to a mail client. Reference
+ * images are the substance of a tattoo enquiry and a `mailto:` cannot carry
+ * one, so the old button asked people to leave, find their photos, and come
+ * back — which most of them did not.
+ *
+ * There is no numbered "what to send" checklist any more: the form's own
+ * fields ask for exactly those things, and a list that repeats the labels
+ * beside it is just the same instruction given twice.
  */
-export function Book({ t }: { t: Dictionary }) {
+export function Book({ t, locale }: { t: Dictionary; locale: Locale }) {
   return (
     <section id="book" className={styles.section}>
       <div className={`shell ${styles.inner}`}>
@@ -26,21 +31,13 @@ export function Book({ t }: { t: Dictionary }) {
         </div>
 
         <div className={styles.side}>
-          {/* The checklist sits above the button on purpose: by the time the
-              visitor reaches the CTA they know what to put in the message, and
-              the pre-filled body then matches what they just read. */}
-          <ol className={`reveal ${styles.brief}`}>
-            <li className={`micro ${styles.briefHead}`}>{t.book.send}</li>
-            {t.book.brief.map((item, i) => (
-              <li key={item} className={styles.briefItem}>
-                <span className={`micro ${styles.n}`}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                {item}
-              </li>
-            ))}
-          </ol>
+          <div className="reveal">
+            <BookingForm t={t} locale={locale} />
+          </div>
 
+          {/* Kept as a second route, not a competing one. Some people simply
+              prefer their own mail client, and a form that is the only way in
+              is a form whose failure is total. */}
           <div className="reveal">
             <ContactActions t={t} />
           </div>
