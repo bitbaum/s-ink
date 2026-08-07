@@ -12,7 +12,7 @@ import { Styles } from '@/components/Styles';
 import { Ticker } from '@/components/Ticker';
 import { getDictionary, HTML_LANG, isLocale } from '@/lib/i18n';
 import { LINKS, SITE } from '@/lib/site';
-import { getReels, getWorks } from '@/lib/works';
+import { getReels, getWorks, OG_IMAGE } from '@/lib/works';
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     name: SITE.name,
     description: `${SITE.name} — ${t.role}. ${t.tagline}.`,
     url: `${SITE.url}/${locale}`,
-    image: `${SITE.url}/work/sami.webp`,
+    image: `${SITE.url}${OG_IMAGE}`,
     inLanguage: HTML_LANG[locale],
     employee: { '@type': 'Person', name: SITE.artist, jobTitle: t.role },
     ...(LINKS.length > 0 ? { sameAs: LINKS.map((l) => l.href) } : {}),
@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Studio t={t} plate={plate} />
         <Book t={t} />
       </main>
-      <Footer t={t} year={new Date().getFullYear()} />
+      <Footer t={t} />
       <StickyBook t={t} />
     </>
   );

@@ -41,6 +41,7 @@ const ja: Dictionary = {
     { k: 'お支払い', v: '現金 · ビットコイン' },
   ],
   reel: { tag: 'モーション', lead: '定着後の作品、スタジオにて。' },
+  lightbox: { close: '閉じる', prev: '前の作品', next: '次の作品' },
   book: {
     titleA: 'メールで相談',
     titleB: 'デザインを',

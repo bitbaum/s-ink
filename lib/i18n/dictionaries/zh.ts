@@ -34,6 +34,7 @@ const zh: Dictionary = {
     { k: '付款', v: '现金 · 比特币' },
   ],
   reel: { tag: '动态', lead: '愈合后的作品，在工作室。' },
+  lightbox: { close: '关闭', prev: '上一件', next: '下一件' },
   book: {
     titleA: '写邮件聊聊',
     titleB: '你的图案',

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
+import type { Dictionary } from '@/lib/i18n';
 import type { Work } from '@/lib/works';
 import styles from './Lightbox.module.css';
 
@@ -14,11 +15,13 @@ import styles from './Lightbox.module.css';
  * return are all handled here.
  */
 export function Lightbox({
+  t,
   works,
   index,
   onClose,
   onStep,
 }: {
+  t: Dictionary;
   works: Work[];
   index: number;
   onClose: () => void;
@@ -93,7 +96,7 @@ export function Lightbox({
           {String(works.length).padStart(2, '0')}
         </span>
         <button type="button" className={`micro ${styles.close}`} onClick={onClose}>
-          Close <span aria-hidden="true">✕</span>
+          {t.lightbox.close} <span aria-hidden="true">✕</span>
         </button>
       </div>
 
@@ -119,7 +122,7 @@ export function Lightbox({
         type="button"
         className={`${styles.arrow} ${styles.prev}`}
         onClick={() => onStep(-1)}
-        aria-label="Previous piece"
+        aria-label={t.lightbox.prev}
       >
         <span aria-hidden="true">←</span>
       </button>
@@ -127,7 +130,7 @@ export function Lightbox({
         type="button"
         className={`${styles.arrow} ${styles.next}`}
         onClick={() => onStep(1)}
-        aria-label="Next piece"
+        aria-label={t.lightbox.next}
       >
         <span aria-hidden="true">→</span>
       </button>

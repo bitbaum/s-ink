@@ -34,6 +34,7 @@ const fr: Dictionary = {
     { k: 'Paiement', v: 'Espèces · Bitcoin' },
   ],
   reel: { tag: 'Mouvement', lead: 'Travaux cicatrisés, en studio.' },
+  lightbox: { close: 'Fermer', prev: 'Pièce précédente', next: 'Pièce suivante' },
   book: {
     titleA: 'Écris-moi pour',
     titleB: 'ton projet',

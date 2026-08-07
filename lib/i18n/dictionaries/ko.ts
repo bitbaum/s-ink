@@ -34,6 +34,7 @@ const ko: Dictionary = {
     { k: '결제', v: '현금 · 비트코인' },
   ],
   reel: { tag: '모션', lead: '아문 작업, 스튜디오에서.' },
+  lightbox: { close: '닫기', prev: '이전 작품', next: '다음 작품' },
   book: {
     titleA: '메일로',
     titleB: '상담하세요',

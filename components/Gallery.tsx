@@ -79,7 +79,7 @@ export function Gallery({ t, works }: { t: Dictionary; works: Work[] }) {
       </ul>
 
       {open !== null ? (
-        <Lightbox works={works} index={open} onClose={close} onStep={step} />
+        <Lightbox t={t} works={works} index={open} onClose={close} onStep={step} />
       ) : null}
     </section>
   );

@@ -35,6 +35,7 @@ const deCH: Dictionary = {
     { k: 'Zahlung', v: 'Bar · Bitcoin' },
   ],
   reel: { tag: 'Bewegung', lead: 'Verheilte Arbeiten, im Studio.' },
+  lightbox: { close: 'Schliessen', prev: 'Vorheriges Stück', next: 'Nächstes Stück' },
   book: {
     titleA: 'Schreib mir für',
     titleB: 'dein Motiv',
