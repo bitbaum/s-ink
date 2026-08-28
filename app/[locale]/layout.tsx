@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
@@ -105,6 +106,15 @@ export default async function LocaleLayout({
         <Atmosphere />
         <RevealObserver />
         {children}
+
+        {/* FleetCrown feedback widget — env-gated, see docs/architecture/feedback-widget.md */}
+        {process.env.NEXT_PUBLIC_FC_WIDGET_TOKEN && (
+          <Script
+            src="https://fleetcrown.orangecat.ch/widget.js"
+            strategy="afterInteractive"
+            data-fc-project={process.env.NEXT_PUBLIC_FC_WIDGET_TOKEN}
+          />
+        )}
       </body>
     </html>
   );
