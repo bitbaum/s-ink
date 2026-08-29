@@ -75,7 +75,8 @@ const ko: Dictionary = {
     copy: '주소 복사',
     copied: '복사됨',
     mailSubject: '타투 문의 — S.Ink',
-    mailBody: '안녕하세요 Sami,\n\n레퍼런스: \n위치: \n대략적인 크기: \n가능한 일정: \n\n감사합니다',
+    mailBody:
+      '안녕하세요 Sami,\n\n레퍼런스: \n위치: \n대략적인 크기: \n가능한 일정: \n\n감사합니다',
   },
   footer: { backToTop: '맨 위로' },
   labels: {

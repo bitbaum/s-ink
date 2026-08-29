@@ -11,9 +11,7 @@ import { SITE } from '@/lib/site';
  * be indexed.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = Object.fromEntries(
-    LOCALES.map((l) => [HTML_LANG[l], `${SITE.url}/${l}`]),
-  );
+  const languages = Object.fromEntries(LOCALES.map((l) => [HTML_LANG[l], `${SITE.url}/${l}`]));
 
   return LOCALES.map((locale) => ({
     url: `${SITE.url}/${locale}`,

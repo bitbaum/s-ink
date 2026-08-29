@@ -58,11 +58,7 @@ export function Nav({ t, locale }: { t: Dictionary; locale: Locale }) {
           <ul className={styles.links}>
             {NAV_IDS.map((id) => (
               <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className={`micro ${styles.link}`}
-                  data-active={active === id}
-                >
+                <a href={`#${id}`} className={`micro ${styles.link}`} data-active={active === id}>
                   {t.nav[id]}
                 </a>
               </li>

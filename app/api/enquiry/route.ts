@@ -120,12 +120,7 @@ export async function POST(request: NextRequest) {
     // Log the whole enquiry, not just the failure. The send is the only copy in
     // flight, so without this a bad API key silently costs him the booking —
     // journald keeps it until someone can forward it by hand.
-    console.error(
-      '[enquiry] send failed:',
-      result.reason,
-      '\n',
-      formatEnquiry(values, locale),
-    );
+    console.error('[enquiry] send failed:', result.reason, '\n', formatEnquiry(values, locale));
     return NextResponse.json({ ok: false, error: 'sendFailed' }, { status: 502 });
   }
 

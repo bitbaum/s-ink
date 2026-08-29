@@ -102,10 +102,13 @@ export function BookingForm({ t, locale }: { t: Dictionary; locale: Locale }) {
       }
       if (body.fields) setErrors(body.fields);
       setState('failed');
-      setFailure(body.error === 'rateLimited' ? t.booking.errors.rateLimited
-        : body.error === 'fileTooLarge' || body.error === 'fileType'
-          ? t.booking.errors.fileRejected
-          : t.booking.errors.failed);
+      setFailure(
+        body.error === 'rateLimited'
+          ? t.booking.errors.rateLimited
+          : body.error === 'fileTooLarge' || body.error === 'fileType'
+            ? t.booking.errors.fileRejected
+            : t.booking.errors.failed,
+      );
     } catch {
       setState('failed');
       setFailure(t.booking.errors.failed);
@@ -127,10 +130,14 @@ export function BookingForm({ t, locale }: { t: Dictionary; locale: Locale }) {
     <form ref={formRef} className={styles.form} onSubmit={onSubmit} noValidate>
       {ENQUIRY_FIELDS.map((field) => {
         const error = errors[field.id];
-        const hint = field.id in t.booking.hints
-          ? t.booking.hints[field.id as keyof typeof t.booking.hints]
-          : undefined;
-        const describedBy = [hint && `${fieldId(field.id)}-hint`, error && `${fieldId(field.id)}-err`]
+        const hint =
+          field.id in t.booking.hints
+            ? t.booking.hints[field.id as keyof typeof t.booking.hints]
+            : undefined;
+        const describedBy = [
+          hint && `${fieldId(field.id)}-hint`,
+          error && `${fieldId(field.id)}-err`,
+        ]
           .filter(Boolean)
           .join(' ');
 
@@ -193,7 +200,9 @@ export function BookingForm({ t, locale }: { t: Dictionary; locale: Locale }) {
           type="file"
           multiple
           accept={REFERENCES.accept.join(',')}
-          onChange={(e) => setFiles([...(e.target.files ?? [])].slice(0, REFERENCES.max).map((f) => f.name))}
+          onChange={(e) =>
+            setFiles([...(e.target.files ?? [])].slice(0, REFERENCES.max).map((f) => f.name))
+          }
         />
         <span className={`micro ${styles.hint}`}>{t.booking.referencesHint}</span>
         {files.length > 0 ? (

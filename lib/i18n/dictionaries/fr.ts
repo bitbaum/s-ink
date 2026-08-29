@@ -54,8 +54,8 @@ const fr: Dictionary = {
       size: 'Environ, en cm.',
     },
     references: 'Images de référence',
-    referencesHint: 'Jusqu\'à 3. Captures, croquis ou l\'endroit sur le corps.',
-    age: 'J\'ai 18 ans ou plus.',
+    referencesHint: "Jusqu'à 3. Captures, croquis ou l'endroit sur le corps.",
+    age: "J'ai 18 ans ou plus.",
     submit: 'Envoyer la demande',
     sending: 'Envoi…',
     sentTitle: 'Envoyé.',
@@ -68,14 +68,15 @@ const fr: Dictionary = {
       tooLong: 'Trop long',
       fileRejected: 'Images uniquement, 5 Mo maximum chacune.',
       rateLimited: 'Trop de messages. Réessayez plus tard.',
-      failed: 'Échec de l\'envoi. Écrivez-lui directement :',
+      failed: "Échec de l'envoi. Écrivez-lui directement :",
     },
   },
   contact: {
     copy: 'Copier l’adresse',
     copied: 'Copié',
     mailSubject: 'Demande de tatouage — S.Ink',
-    mailBody: 'Salut Sami,\n\nRéférence : \nEmplacement : \nTaille approximative : \nMes disponibilités : \n\nMerci',
+    mailBody:
+      'Salut Sami,\n\nRéférence : \nEmplacement : \nTaille approximative : \nMes disponibilités : \n\nMerci',
   },
   footer: { backToTop: 'Haut de page' },
   labels: {

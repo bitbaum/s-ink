@@ -75,7 +75,8 @@ const tr: Dictionary = {
     copy: 'Adresi kopyala',
     copied: 'Kopyalandı',
     mailSubject: 'Dövme talebi — S.Ink',
-    mailBody: 'Merhaba Sami,\n\nReferans: \nYer: \nYaklaşık boyut: \nMüsait olduğum zamanlar: \n\nTeşekkürler',
+    mailBody:
+      'Merhaba Sami,\n\nReferans: \nYer: \nYaklaşık boyut: \nMüsait olduğum zamanlar: \n\nTeşekkürler',
   },
   footer: { backToTop: 'Başa dön' },
   labels: {

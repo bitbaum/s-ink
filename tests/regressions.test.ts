@@ -38,9 +38,7 @@ describe('regressions', () => {
     // the metadata value paints the browser chrome around it. They drift apart
     // silently and only show up as a seam on mobile.
     const token = /--primitive-void:\s*(#[0-9a-f]{3,8})/i.exec(read('app/globals.css'))?.[1];
-    const theme = /themeColor:\s*'(#[0-9a-f]{3,8})'/i.exec(
-      read('app/[locale]/layout.tsx'),
-    )?.[1];
+    const theme = /themeColor:\s*'(#[0-9a-f]{3,8})'/i.exec(read('app/[locale]/layout.tsx'))?.[1];
     expect(token).toBeDefined();
     expect(theme?.toLowerCase()).toBe(token?.toLowerCase());
   });

@@ -22,8 +22,7 @@ export function proxy(request: NextRequest) {
   // Already carrying a language — leave it alone.
   if (isLocale(segments[0] ?? '')) return NextResponse.next();
 
-  const isSection =
-    segments.length === 1 && (NAV_IDS as readonly string[]).includes(segments[0]);
+  const isSection = segments.length === 1 && (NAV_IDS as readonly string[]).includes(segments[0]);
   // Everything else genuinely does not exist, and saying so is the honest
   // answer: bouncing every unknown URL to the front page is a soft 404, which
   // search engines treat as a lie and which leaves a real 404 page unreachable.

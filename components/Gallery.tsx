@@ -21,8 +21,7 @@ export function Gallery({ t, works }: { t: Dictionary; works: Work[] }) {
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
-    (dir: 1 | -1) =>
-      setOpen((i) => (i === null ? i : (i + dir + works.length) % works.length)),
+    (dir: 1 | -1) => setOpen((i) => (i === null ? i : (i + dir + works.length) % works.length)),
     [works.length],
   );
 
@@ -65,9 +64,7 @@ export function Gallery({ t, works }: { t: Dictionary; works: Work[] }) {
               </span>
 
               <span className={styles.meta}>
-                <span className={`micro ${styles.index}`}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+                <span className={`micro ${styles.index}`}>{String(i + 1).padStart(2, '0')}</span>
                 <span className={styles.title}>{work.title}</span>
                 <span className={`micro ${styles.placement}`}>
                   {work.style} / {work.placement}
