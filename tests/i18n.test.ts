@@ -28,7 +28,14 @@ describe('dictionaries', () => {
     for (const field of ENQUIRY_FIELDS) {
       expect(t.booking.fields[field.id], `missing label: ${field.id}`).toBeTruthy();
     }
-    for (const code of ['required', 'email', 'tooLong', 'fileRejected', 'rateLimited', 'failed'] as const) {
+    for (const code of [
+      'required',
+      'email',
+      'tooLong',
+      'fileRejected',
+      'rateLimited',
+      'failed',
+    ] as const) {
       expect(t.booking.errors[code], `missing error: ${code}`).toBeTruthy();
     }
   });

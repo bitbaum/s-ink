@@ -61,7 +61,8 @@ const deCH: Dictionary = {
     sending: 'Wird gesendet…',
     sentTitle: 'Gesendet.',
     sentBody: 'Er liest jede Nachricht selbst und antwortet innert weniger Tage.',
-    privacy: 'Deine Nachricht geht direkt in sein Postfach. Auf dieser Seite wird nichts gespeichert.',
+    privacy:
+      'Deine Nachricht geht direkt in sein Postfach. Auf dieser Seite wird nichts gespeichert.',
     orEmail: 'Oder schreib ihm direkt',
     errors: {
       required: 'Erforderlich',
@@ -76,7 +77,8 @@ const deCH: Dictionary = {
     copy: 'Adresse kopieren',
     copied: 'Kopiert',
     mailSubject: 'Tattoo-Anfrage — S.Ink',
-    mailBody: 'Hoi Sami,\n\nReferenz: \nStelle: \nUngefähre Grösse: \nMeine Verfügbarkeit: \n\nDanke',
+    mailBody:
+      'Hoi Sami,\n\nReferenz: \nStelle: \nUngefähre Grösse: \nMeine Verfügbarkeit: \n\nDanke',
   },
   footer: { backToTop: 'Nach oben' },
   labels: {

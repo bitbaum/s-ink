@@ -59,9 +59,7 @@ export function Book({ t, locale }: { t: Dictionary; locale: Locale }) {
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    <span className={`micro ${styles.n}`}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                    <span className={`micro ${styles.n}`}>{String(i + 1).padStart(2, '0')}</span>
                     <span className={styles.label}>{d.label}</span>
                     <span className={`micro ${styles.handle}`}>{d.handle}</span>
                     <span className={styles.note}>{d.note}</span>

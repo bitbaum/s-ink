@@ -24,9 +24,7 @@ export function StickyBook({ t }: { t: Dictionary }) {
 
     const update = () => {
       const pastHero = window.scrollY > window.innerHeight * 0.9;
-      const atBook = book
-        ? book.getBoundingClientRect().top < window.innerHeight * 0.85
-        : false;
+      const atBook = book ? book.getBoundingClientRect().top < window.innerHeight * 0.85 : false;
       setShown(pastHero && !atBook);
     };
 

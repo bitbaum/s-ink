@@ -79,7 +79,9 @@ export const AGE_FIELD = 'age';
 
 export type EnquiryValues = Record<EnquiryFieldId, string>;
 
-export type EnquiryErrors = Partial<Record<EnquiryFieldId | typeof AGE_FIELD, 'required' | 'tooLong' | 'email'>>;
+export type EnquiryErrors = Partial<
+  Record<EnquiryFieldId | typeof AGE_FIELD, 'required' | 'tooLong' | 'email'>
+>;
 
 const EMAIL_SHAPE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -88,7 +90,10 @@ const EMAIL_SHAPE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
  * truth. Returns error *codes*, not sentences — the caller translates them, so
  * this file never has to know which language the visitor is reading.
  */
-export function validateEnquiry(values: Partial<EnquiryValues>, ageConfirmed: boolean): EnquiryErrors {
+export function validateEnquiry(
+  values: Partial<EnquiryValues>,
+  ageConfirmed: boolean,
+): EnquiryErrors {
   const errors: EnquiryErrors = {};
 
   for (const field of ENQUIRY_FIELDS) {

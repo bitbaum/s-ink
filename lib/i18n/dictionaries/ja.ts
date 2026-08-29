@@ -82,7 +82,8 @@ const ja: Dictionary = {
     copy: 'アドレスをコピー',
     copied: 'コピーしました',
     mailSubject: 'タトゥーのご相談 — S.Ink',
-    mailBody: 'Sami さん\n\n参考画像：\n部位：\nおおよそのサイズ：\n希望日程：\n\nよろしくお願いします',
+    mailBody:
+      'Sami さん\n\n参考画像：\n部位：\nおおよそのサイズ：\n希望日程：\n\nよろしくお願いします',
   },
   footer: { backToTop: 'トップへ' },
   labels: {
