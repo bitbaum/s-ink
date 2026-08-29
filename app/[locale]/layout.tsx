@@ -119,3 +119,6 @@ export default async function LocaleLayout({
     </html>
   );
 }
+
+const   gateProof   =    {a:1,    b:2}
+export default gateProof
