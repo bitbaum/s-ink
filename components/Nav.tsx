@@ -58,7 +58,16 @@ export function Nav({ t, locale }: { t: Dictionary; locale: Locale }) {
           <ul className={styles.links}>
             {NAV_IDS.map((id) => (
               <li key={id}>
-                <a href={`#${id}`} className={`micro ${styles.link}`} data-active={active === id}>
+                {/* `location`, not `page`: this is a one-page site and the nav
+                    tracks which SECTION is in view, which is exactly what
+                    aria-current="location" means. "page" would claim a
+                    navigation that never happens here. */}
+                <a
+                  href={`#${id}`}
+                  className={`micro ${styles.link}`}
+                  data-active={active === id}
+                  aria-current={active === id ? 'location' : undefined}
+                >
                   {t.nav[id]}
                 </a>
               </li>
