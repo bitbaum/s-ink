@@ -7,12 +7,13 @@ Live: https://sinktattoo.com
 
 ## What it is
 
-One page, deliberately terse. Sixteen pieces, two clips, a spec sheet and a way
-to get in touch. The copy is short on purpose — the work carries the page.
+One page, deliberately terse. Twenty-one pieces, two clips, a spec sheet and a
+way to get in touch. The copy is short on purpose — the work carries the page.
 
 ```
 app/globals.css     SSOT for every design token (colour, type, motion). Retheme here, nowhere else.
-lib/site.ts         SSOT for every word the site says, plus booking destinations.
+lib/site.ts         SSOT for the facts that don't change between languages, plus booking destinations.
+lib/i18n/           Locales, negotiation, and every sentence the site says (dictionaries/).
 content/works.json  SSOT for the portfolio — shared by the site AND the media pipeline.
 scripts/            Media processing and screenshot tooling.
 components/         One component + one CSS module each. No design values inline.
@@ -24,7 +25,7 @@ The source photographs are phone snaps taken in whatever room the tattoo
 happened in — orange parquet, blue cling film, a red hoodie, a keyboard. Shown
 raw they read as a camera roll. `scripts/process-media.py` puts every frame
 through one identical treatment — tight crop onto the ink, near-monochrome cold
-duotone, S-curve contrast, vignette, grain — which is what makes sixteen
+duotone, S-curve contrast, vignette, grain — which is what makes twenty-one
 unrelated snapshots look like one body of work.
 
 Cropping is data, not cleverness: each entry in `content/works.json` carries a
@@ -69,8 +70,8 @@ linter and the build all miss:
 Design review screenshots (needs a checkout that already has Playwright):
 
 ```bash
-npm start &
-PW=/path/to/node_modules/playwright/index.js node scripts/shots.mjs http://localhost:4019 /tmp
+pnpm start &
+PW=/path/to/node_modules/playwright/index.js node scripts/shots.mjs http://localhost:3000 /tmp
 ```
 
 ## Languages
@@ -84,10 +85,14 @@ translation is a build error rather than a blank space on the page.
 
 ## Booking
 
-Email is the only booking route. The primary button opens a message with the
-subject and a short checklist body already written, in the visitor's language —
-the gap between "I'll email him later" and a half-finished draft is where most
-enquiries die. Change the address in one place: `EMAIL` in `lib/contact.ts`.
+The primary route is the on-page enquiry form — name, email, idea, placement,
+size, up to three reference photos. It posts to `/api/enquiry`, which relays
+the enquiry by mail (Resend, server-side, `RESEND_API_KEY` + `BOOKING_FROM`)
+with reply-to set to the visitor, so answering is one keypress in his normal
+inbox. `lib/enquiry.ts` is the SSOT for the fields: the form renders from it
+and the API validates against it. A quiet `mailto:` link with a pre-written
+draft remains as the second route for people who prefer their own mail client.
+Enquiries land at `EMAIL` in `lib/contact.ts`; change the address in one place.
 
 ## Still open
 
@@ -99,8 +104,9 @@ enquiries die. Change the address in one place: `EMAIL` in `lib/contact.ts`.
 
 ## Notes
 
-- No cookies, no analytics, no third-party requests. Fonts are self-hosted by
-  `next/font`.
+- No cookies, no analytics, no third-party requests from the browser — the one
+  outbound call is the server relaying enquiries through Resend. Fonts are
+  self-hosted by `next/font`.
 - Client photographs are cropped to the tattoo, which also keeps faces and
   incidental bystanders out of frame. One supplied clip was unrelated footage of
   people in a garden and is not used.
