@@ -1,5 +1,5 @@
 # Golden CI floor — see dotfiles/templates/ci/README.md.
-# s-ink: npm, no database, no services. `verify` (lint + typecheck + test +
+# s-ink: pnpm, no database, no services. `verify` (lint + typecheck + test +
 # build) is the SSOT for what "green" means and is defined once in package.json,
 # so this job and a local run check exactly the same things — including that
 # every piece in the works manifest has its processed media, which the build
@@ -24,13 +24,16 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # pnpm before setup-node so `cache: pnpm` can find the store.
+      - uses: pnpm/action-setup@v6
+
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-          cache: npm
+          cache: pnpm
 
       - name: Install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Verify
-        run: npm run verify
+        run: pnpm run verify

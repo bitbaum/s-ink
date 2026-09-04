@@ -33,7 +33,7 @@ the wrong subject whenever the background is dark.
 
 ```bash
 # Originals are not in the repo; point at wherever they live.
-MEDIA_SRC=~/Downloads/sami-photos npm run media
+MEDIA_SRC=~/Downloads/sami-photos pnpm run media
 
 # Re-crop one piece: edit its focus/zoom in content/works.json, delete its
 # exports from public/work/, re-run. Existing files are skipped, not rebuilt.
@@ -45,10 +45,10 @@ changes.
 ## Develop
 
 ```bash
-npm install
-npm run dev        # http://localhost:3000
-npm run verify     # lint + typecheck + test + build — the same command CI runs
-npm run test       # vitest only
+pnpm install
+pnpm run dev        # http://localhost:3000
+pnpm run verify     # lint + typecheck + test + build — the same command CI runs
+pnpm run test       # vitest only
 ```
 
 ### What the tests cover
