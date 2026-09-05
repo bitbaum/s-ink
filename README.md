@@ -87,7 +87,7 @@ translation is a build error rather than a blank space on the page.
 
 The primary route is the on-page enquiry form — name, email, idea, placement,
 size, up to three reference photos. It posts to `/api/enquiry`, which relays
-the enquiry by mail (Resend, server-side, `RESEND_API_KEY` + `BOOKING_FROM`)
+the enquiry by mail (via `@bitbaum/mail-kit`, server-side, `RESEND_API_KEY` + `RESEND_FROM`)
 with reply-to set to the visitor, so answering is one keypress in his normal
 inbox. `lib/enquiry.ts` is the SSOT for the fields: the form renders from it
 and the API validates against it. A quiet `mailto:` link with a pre-written

@@ -1,12 +1,13 @@
+import { sendMail, isMailConfigured, fromAddress, conventionalFrom } from '@bitbaum/mail-kit';
 import { EMAIL } from '@/lib/contact';
 
 /**
  * Sending an enquiry on. Server-only.
  *
- * Resend's REST API over plain `fetch` rather than an SDK: the whole surface
- * used here is one POST, and a dependency for that would be more code to
- * update than to write. `from` must be a domain verified in the Resend
- * account, which is why it is configuration and not a constant.
+ * The transport is @bitbaum/mail-kit — the fleet's one email layer (itself a
+ * single POST to the Resend API, no SDK). Sender comes from `RESEND_FROM`
+ * (the fleet's env SSOT), falling back to the fleet-conventional
+ * `s-ink@fleetcrown.orangecat.ch` — the one domain verified in the account.
  *
  * `replyTo` is the point of the whole thing — the mail arrives from the site
  * but replying goes straight to the visitor, so answering is one keypress and
@@ -23,7 +24,7 @@ export type SendResult = { ok: true } | { ok: false; reason: string };
 
 /** Absent configuration is a deployment state, not an error — callers degrade. */
 export function mailConfigured(): boolean {
-  return Boolean(process.env.RESEND_API_KEY && process.env.BOOKING_FROM);
+  return isMailConfigured();
 }
 
 /**
@@ -41,42 +42,30 @@ export async function sendEnquiry(opts: {
   replyTo: string;
   attachments: Attachment[];
 }): Promise<SendResult> {
-  const key = process.env.RESEND_API_KEY;
-  const from = process.env.BOOKING_FROM;
-  if (!key || !from) return { ok: false, reason: 'not-configured' };
+  if (!isMailConfigured()) return { ok: false, reason: 'not-configured' };
 
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${key}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from,
-        to: [recipient()],
-        reply_to: opts.replyTo,
-        subject: opts.subject,
-        text: opts.text,
-        attachments: opts.attachments,
-      }),
-      // A visitor is watching a spinner; failing fast and showing the address
-      // beats holding the page open while an upstream hangs.
-      signal: AbortSignal.timeout(20_000),
-    });
+  const result = await sendMail(
+    {
+      from: fromAddress() ?? conventionalFrom('S-ink'),
+      to: recipient(),
+      replyTo: opts.replyTo,
+      subject: opts.subject,
+      text: opts.text,
+      attachments: opts.attachments,
+    },
+    // A visitor is watching a spinner; failing fast and showing the address
+    // beats holding the page open while an upstream hangs.
+    { timeoutMs: 20_000 },
+  );
 
-    if (response.ok) {
-      // Log the provider's id, never the message. It is the only handle that
-      // can answer "he says he never got it" later, and it carries no personal
-      // data — the enquiry itself is only ever logged when a send has failed.
-      const { id } = (await response.json().catch(() => ({}))) as { id?: string };
-      console.info('[enquiry] sent', id ?? '(no id)');
-      return { ok: true };
-    }
-    // Read the body: Resend explains refusals (unverified sender, size) here,
-    // and without it every failure looks the same in the logs.
-    return { ok: false, reason: `${response.status} ${(await response.text()).slice(0, 300)}` };
-  } catch (error) {
-    return { ok: false, reason: error instanceof Error ? error.message : 'unknown' };
+  if (result.sent) {
+    // Log the provider's id, never the message. It is the only handle that
+    // can answer "he says he never got it" later, and it carries no personal
+    // data — the enquiry itself is only ever logged when a send has failed.
+    console.info('[enquiry] sent', result.id);
+    return { ok: true };
   }
+  // mail-kit's error already carries the provider's explanation (unverified
+  // sender, size) — without it every failure looks the same in the logs.
+  return { ok: false, reason: result.error };
 }
