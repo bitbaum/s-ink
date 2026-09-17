@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
+import { clientIp } from '@/lib/client-ip';
 import {
   AGE_FIELD,
   ENQUIRY_FIELDS,
@@ -41,15 +42,6 @@ function rateLimited(ip: string): boolean {
   recent.push(now);
   hits.set(ip, recent);
   return false;
-}
-
-function clientIp(request: NextRequest): string {
-  // Caddy sits in front, so the socket address is always the proxy.
-  return (
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    request.headers.get('x-real-ip') ||
-    'unknown'
-  );
 }
 
 export async function POST(request: NextRequest) {
