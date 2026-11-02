@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import { Atmosphere } from '@/components/Atmosphere';
@@ -9,20 +8,8 @@ import { getDictionary, HTML_LANG, isLocale, LOCALES, type Locale } from '@/lib/
 import { SITE } from '@/lib/site';
 import { OG_IMAGE } from '@/lib/works';
 import '../globals.css';
-
-const display = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-});
+// Space Grotesk and JetBrains Mono ship in @bitbaum/design-tokens; ./fonts is generated from it.
+import { display, mono } from './fonts';
 
 /** Every locale is prerendered at build time — there is no dynamic content. */
 export function generateStaticParams() {

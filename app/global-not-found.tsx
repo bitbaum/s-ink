@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk } from 'next/font/google';
 
 import { DEFAULT_LOCALE } from '@/lib/i18n/locales';
 import { SITE } from '@/lib/site';
 import styles from './global-not-found.module.css';
 import './globals.css';
+// Space Grotesk ships in @bitbaum/design-tokens; ./global-not-found.fonts is generated from it.
+import { display } from './global-not-found.fonts';
 
 /**
  * The 404 for URLs that match no route at all.
@@ -20,13 +21,6 @@ import './globals.css';
  * locale to translate into, and guessing one to apologise in is not worth a
  * seven-way string.
  */
-const display = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
   title: `404 — ${SITE.name}`,
   description: 'This page does not exist.',
