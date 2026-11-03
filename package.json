@@ -19,7 +19,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@bitbaum/design-tokens": "^1.5.1",
+    "@bitbaum/design-tokens": "^1.5.2",
     "@bitbaum/mail-kit": "^0.2.0",
     "next": "16.4.3",
     "react": "19.3.1",

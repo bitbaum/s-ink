@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/design-tokens':
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.5.2
+        version: 1.5.2
       '@bitbaum/mail-kit':
         specifier: ^0.2.0
         version: 0.2.0
@@ -124,8 +124,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/design-tokens@1.5.1':
-    resolution: {integrity: sha512-yFVbzG0mMxUogvA8MLnvTxuH+mqxGYLeMvwdyJEXLJt3+2IZb+j/zdZ42Rz0Xe5cYuWga60SNVPGZxuF8T1dew==}
+  '@bitbaum/design-tokens@1.5.2':
+    resolution: {integrity: sha512-ScF091XRs5ph109PkRgI3t5w3eersltlJUGea64MPItqXaT5asXM2x3Gj4t6THuFGojZ2pvMLAtuOc3DTmCoTg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -2236,7 +2236,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/design-tokens@1.5.1': {}
+  '@bitbaum/design-tokens@1.5.2': {}
 
   '@bitbaum/mail-kit@0.2.0': {}
 
